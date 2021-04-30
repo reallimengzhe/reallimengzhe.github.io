@@ -1,19 +1,141 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>limengzhe</title><style>body {
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik:300,500,700"
+      rel="stylesheet"
+    />
+    <title>limengzhe</title>
+    <style>
+      body {
         margin: 0;
-        font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-          Microsoft YaHei, Arial, sans-serif;
+        font-family: 'Rubik', -apple-system, PingFang SC, BlinkMacSystemFont,
+          'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+          'Helvetica Neue', sans-serif;
+        /* font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+          Microsoft YaHei, Arial, sans-serif; */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        font-size: calc(10px + 0.33vw);
+        -webkit-font-smoothing: antialiased;
+        padding: 10vh 10vw;
       }
       h1,
       h2,
-      h3,
-      h4,
-      h5,
-      h6,
       p {
-        margin: 0;
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: 3em;
+        /* font-weight: 500; */
+        /* color: #1d1d1f; */
+        margin-bottom: 0.12em;
+      }
+      h2 {
+        margin-top: 0;
+        font-size: 2.5em;
+        /* font-weight: 500; */
+        margin-bottom: 1.5em;
+      }
+      #name {
+        font-style: normal;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-position: -256px 50%;
+        font-synthesis: style;
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-image: linear-gradient(
+          120deg,
+          rgb(161, 161, 166) 0%,
+          rgb(0, 110, 130) 20%,
+          rgb(201, 128, 0) 30%,
+          rgb(239, 86, 2) 55%,
+          rgb(182, 44, 49) 65%,
+          rgb(79, 83, 129) 80%,
+          rgb(79, 83, 129) 100%
+        );
+      }
+      p {
+        color: #636366;
+        font-size: 1.6em;
+        font-weight: 300;
+        line-height: 1.4;
+        max-width: 28em;
+        margin-bottom: 0.7em;
       }
       a {
+        font-weight: 400;
         text-decoration: none;
-      }</style><link href="/css/app.81665735.css" rel="preload" as="style"><link href="/js/app.086ab988.js" rel="preload" as="script"><link href="/js/chunk-vendors.add3b716.js" rel="preload" as="script"><link href="/css/app.81665735.css" rel="stylesheet"></head><body><div id="app"></div><script src="/js/chunk-vendors.add3b716.js"></script><script src="/js/app.086ab988.js"></script></body></html>
+        color: #1d1d1f;
+        position: relative;
+      }
+      a:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 60%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+        background-color: #f2f8fc;
+      }
+      a:hover:after {
+        top: 0%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1><i id="name"> 你好！ </i></h1>
+    <h2>
+      我是 李孟哲。
+    </h2>
+    <p>
+      <span
+        >我的主要工作是一名 Web 前端开发者。从 2017
+        年来到上海，并在这里工作。</span
+      >
+    </p>
+    <p>
+      <span>你可以通过</span>
+      <a href="https://www.jianshu.com/u/6c204631fb1c" target="_blank">简书</a>
+      <span>（主要使用）或者</span>
+      <a href="https://juejin.cn/user/3984285869810887" target="_blank">掘金</a>
+      <span>访问我发表的前端文章列表。</span>
+    </p>
+    <p>
+      <span>我的开源作品代码会发布至</span>
+      <a href="https://github.com/reallimengzhe" target="_blank">GitHub</a>
+      <span>
+        。
+      </span>
+      <a href="https://reallimengzhe.github.io/zero-icon/">Zero Icon</a>
+      <span>
+        图标库，是我的第一个开源作品。如果有其它开源作品，它们的源代码同样会发布至
+      </span>
+      <a href="https://github.com/reallimengzhe" target="_blank">GitHub</a>
+      <span>
+        ，感谢你的 Star。
+      </span>
+    </p>
+    <p>
+      <span>
+        你可以通过
+      </span>
+      <a href=" mailto:limengzhe@tom.com">
+        limengzhe@tom.com
+      </a>
+      <span>
+        与我联系。
+      </span>
+    </p>
+  </body>
+</html>
