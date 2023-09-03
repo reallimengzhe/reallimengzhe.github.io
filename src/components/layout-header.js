@@ -1,170 +1,62 @@
 import { IconCode, IconShake, IconEmail } from '@arco-design/web-react/icon'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import * as THREE from 'three'
+import FOG from 'vanta/dist/vanta.fog.min'
 
 export default function LayoutHeader() {
-  const [isDark, setDark] = useState(false)
+  let vanta = null
 
-  useEffect(onHtmlClassChange, [])
+  const vantaRef = useRef(null)
 
   useEffect(() => {
+    // if (!vanta) {
+    vanta = FOG({
+      el: vantaRef.current,
+      THREE: THREE, // use a custom THREE when initializing
+      highlightColor: 0x4affff,
+      lowlightColor: 0x002fa7,
+      baseColor: 0xffffff,
+      midtoneColor: 0xffffff,
+      // mouseControls: true,
+      // touchControls: true,
+      // gyroControls: false,
+      // minHeight: 200.0,
+      // minWidth: 200.0,
+      speed: 3.0,
+      // zoom: 0.7,
+    })
+    // }
+
+    onHtmlClassChange()
+
     const observer = new MutationObserver(onHtmlClassChange)
+
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class'],
     })
+
+    // return () => {
+    //   if (vanta) vanta.destroy()
+    // }
   }, [])
 
   function onHtmlClassChange() {
+    if (!vanta) return
+
     const value = document.documentElement.classList.contains('dark')
-    setDark(value)
+
+    vanta.setOptions({
+      highlightColor: value ? 0x002fa7 : 0x4affff,
+      lowlightColor: value ? 0x4affff : 0x002fa7,
+      baseColor: value ? 0x0 : 0xffffff,
+      midtoneColor: value ? 0x0 : 0xffffff,
+    })
   }
 
   return (
-    <header className="layout_header relative overflow-hidden px-4 pb-32 pt-40 md:pb-48 md:pt-56">
-      <div className="layout_header-background-1 absolute bottom-0 top-0">
-        <div className="flex">
-          {[
-            0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'red', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-
-        <div className="flex">
-          {[
-            0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'red', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'red', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'red', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'red', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'red', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-      </div>
-      <div className="layout_header-background-2 absolute bottom-0 top-0 left-0 right-0 m-auto">
-        <div className="flex">
-          {[
-            0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'yellow', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-
-        <div className="flex">
-          {[
-            0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'yellow', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'yellow', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'yellow', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'yellow', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'yellow', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-      </div>
-      <div className="layout_header-background-3 absolute bottom-0 top-0">
-        <div className="flex">
-          {[
-            0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'blue', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-
-        <div className="flex">
-          {[
-            0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'blue', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'blue', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'blue', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'blue', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-        <div className="flex">
-          {[
-            0, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2,
-            0.1,
-          ].map(opacity => {
-            return <div className="h-24 w-12" style={{ background: 'blue', opacity: opacity * 0.2 }}></div>
-          })}
-        </div>
-      </div>
+    <header className="layout_header relative overflow-hidden px-4 pb-32 pt-40 md:pb-72 md:pt-80">
+      <div ref={vantaRef} className="absolute bottom-0 left-0 right-0 top-0"></div>
 
       <img src="/avatar.png" className="relative z-10 mx-auto mb-4 h-20 w-20 rounded-full" draggable={false} />
 

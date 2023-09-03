@@ -17,7 +17,7 @@ export default function Post() {
       >
         {posts.map(post => {
           return (
-            <div className="page_post-item">
+            <div className="page_post-item" key={post.title}>
               <Link
                 href={post.link}
                 target="_blank"
