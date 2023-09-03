@@ -3,4 +3,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
+  assetPrefix: './',
+  output: 'export',
+  distDir: 'docs',
 }
