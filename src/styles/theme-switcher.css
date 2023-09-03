@@ -1,0 +1,9 @@
+.theme_switcher {
+  cursor: pointer;
+  background-color: rgb(var(--content-bg-color));
+}
+
+.theme_switcher-plug {
+  background-color: rgb(var(--bg-color));
+  transition: all 225ms;
+}
