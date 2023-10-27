@@ -1,27 +1,22 @@
+import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 
-import ProjectViewer from '@/components/project-viewer'
 import IconMore from '@/components/icon-more'
 import { setAnimation } from '@/utils'
 
-export default function Project() {
+export default function Projects() {
   useEffect(() => {
     setAnimation(document.querySelectorAll('.page_project-item'))
   }, [])
+
   const projects = require('@/data/project.json')
-
-  const ProjectViewerRef = useRef(null)
-
-  function onViewProject(project) {
-    ProjectViewerRef.current.show(project)
-  }
 
   return (
     <main className='page_project relative p-4'>
       <div className='mx-auto max-w-7xl pb-10 mb-12 border-b border-slate-200 dark:border-slate-800'>
         <h1 className='text-5xl font-extrabold'>项目</h1>
         <p className='text-lg text-slate-400'>
-          我曾独立负责过多个大型项目，从立项到交付，完成了多个从 0 到 1 的实现。这是我职业生涯的宝贵经验。
+          我曾独立负责过多个大型项目，从立项到交付，完成了多个从 0 到 1 的实现。这是我职业生涯的宝贵经验，使我受益良多。
         </p>
       </div>
 
@@ -31,10 +26,10 @@ export default function Project() {
           .map(project => {
             return (
               <div className='page_project-item' key={project.name}>
-                <div
+                <Link
                   key={project.name}
                   className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-7 transition-all hover:-translate-y-1 hover:shadow h-full'
-                  onClick={() => onViewProject(project)}
+                  href={'/projects/' + project.id}
                 >
                   <img src={project.logo} className='h-10 mb-16' />
 
@@ -71,13 +66,11 @@ export default function Project() {
                       <IconMore />
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             )
           })}
       </div>
-
-      <ProjectViewer ref={ProjectViewerRef} />
     </main>
   )
 }

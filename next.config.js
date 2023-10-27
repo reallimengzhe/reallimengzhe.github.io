@@ -3,7 +3,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  assetPrefix: './',
+  // assetPrefix: './',
   output: 'export',
-  distDir: 'docs',
+  distDir: 'out',
 }
