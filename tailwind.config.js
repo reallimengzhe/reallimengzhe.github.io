@@ -50,6 +50,7 @@ module.exports = {
       },
       slate: colors.slate,
       black: colors.black,
+      white: colors.white,
     },
   },
   plugins: [],
