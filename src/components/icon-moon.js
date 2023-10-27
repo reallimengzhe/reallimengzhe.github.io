@@ -1,13 +1,7 @@
-export default function IconTransfer({ style = {}, fill = 'currentColor', width = '1em', height = '1em', className = '' }) {
+export default function ({ fill = 'currentColor', width = '1em', height = '1em', className = '', style = {} }) {
   return (
-    <svg width={width} height={height} viewBox='0 0 48 48' fill={fill} xmlns='http://www.w3.org/2000/svg' className={className}>
-      <path
-        d='M28.0527 4.41085C22.5828 5.83695 18.5455 10.8106 18.5455 16.7273C18.5455 23.7564 24.2436 29.4545 31.2727 29.4545C37.1894 29.4545 42.1631 25.4172 43.5891 19.9473C43.8585 21.256 44 22.6115 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C25.3885 4 26.744 4.14149 28.0527 4.41085Z'
-        fill={fill}
-        stroke={fill}
-        stroke-width='4'
-        stroke-linejoin='round'
-      />
+    <svg width={width} height={height} viewBox='0 0 24 24' fill={fill} xmlns='http://www.w3.org/2000/svg' className={className} style={style}>
+      <path d='M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z'></path>
     </svg>
   )
 }
