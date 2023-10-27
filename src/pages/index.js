@@ -145,7 +145,7 @@ export default function Home() {
         </div>
 
         <Link
-          href='/project'
+          href='/projects'
           className='flex items-center justify-center mb-20 mx-auto w-32 hover:bg-slate-100 hover:dark:bg-slate-800 py-2 rounded-lg transition-colors home-module'
         >
           <span> 查看更多 </span>

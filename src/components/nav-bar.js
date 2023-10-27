@@ -15,9 +15,9 @@ export default function NavBar() {
         </Link>
 
         <Link
-          href='/project'
+          href='/projects'
           className={`nav_bar-item ml-auto rounded-md px-4 py-1 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 ${
-            pathname === '/project' ? 'font-bold' : ''
+            pathname === '/projects' ? 'font-bold' : ''
           }`}
         >
           项目
