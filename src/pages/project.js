@@ -25,7 +25,7 @@ export default function Project() {
             return (
               <div className='page_project-item' key={project.name}>
                 <div
-                  className='content-bg rounded-xl border p-4 transition duration-300 hover:-translate-y-1 hover:shadow'
+                  className='rounded-xl border border-slate-200 dark:border-slate-800 p-4 transition duration-300 hover:-translate-y-1 hover:shadow'
                   key={project.name}
                   onClick={() => onViewProject(project)}
                 >
@@ -39,7 +39,7 @@ export default function Project() {
                     {project.techStack.map((tech, index) => {
                       return (
                         <div
-                          className='page_project-item-tech flex h-8 w-8 items-center justify-center rounded-full'
+                        className='flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-950'
                           style={{
                             marginLeft: index === 0 ? '-4px' : '-8px',
                             zIndex: 10 - index,
@@ -52,7 +52,7 @@ export default function Project() {
                     })}
 
                     <div
-                      className='page_project-item-tech flex h-8 w-8 items-center justify-center rounded-full'
+                      className='flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-950'
                       style={{ marginLeft: '-8px' }}
                       key='more'
                     >

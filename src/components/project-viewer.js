@@ -32,7 +32,7 @@ export default forwardRef((props, ref) => {
             ))}
           </Carousel>
         </div>
-        <aside className="content-bg h-3/5 w-full overflow-y-auto rounded-xl p-4 md:h-full md:w-1/3 md:p-8">
+        <aside className="h-3/5 w-full overflow-y-auto rounded-xl p-4 md:h-full md:w-1/3 md:p-8">
           <h3 className="mb-4 text-lg font-bold">{currentProject.name}</h3>
           <h5 className="text-secondary mb-2">项目简介</h5>
           <p className="mb-4 text-justify">{currentProject.intro}</p>

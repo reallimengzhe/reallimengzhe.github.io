@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <>
-      <header className='home-header relative overflow-hidden px-4 pb-32 pt-40 md:pb-32 md:pt-32 mx-auto border-b'>
+      <header className='home-header relative overflow-hidden px-4 pb-32 pt-40 md:pb-32 md:pt-32 mx-auto bg-bottom border-b border-slate-200 dark:border-slate-800'>
         {/* <div ref={vantaRef} className='absolute bottom-0 left-0 right-0 top-0'></div> */}
 
         <h1 className='text-center font-extrabold md:text-6xl'>有朋自远方来，不亦乐乎。 🎈</h1>
@@ -101,7 +101,7 @@ export default function Home() {
               return (
                 <div
                   key={project.name}
-                  className='flex flex-col items-start rounded-xl border p-7 transition duration-300 hover:-translate-y-1 hover:shadow'
+                  className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-7 transition-all hover:-translate-y-1 hover:shadow'
                   onClick={() => onViewProject(project)}
                 >
                   <img src={project.logo} className='h-10 mb-16' />
@@ -160,7 +160,7 @@ export default function Home() {
             return (
               <div className='flex home-module' key={post.title}>
                 <img src={'/avatar.png'} className='h-16 w-16 rounded-full mr-8 mt-2' />
-                <div className='home-post-item block flex-1 rounded-xl border p-4 transition duration-300 hover:-translate-y-1 hover:shadow'>
+                <div className='home-post-item block flex-1 rounded-xl border border-slate-200 dark:border-slate-800 p-4 transition-all hover:-translate-y-1 hover:shadow'>
                   <Link href={post.link} target='_blank' className={`block text-2xl font-bold mb-4`}>
                     <span>{post.title}</span>
                   </Link>
