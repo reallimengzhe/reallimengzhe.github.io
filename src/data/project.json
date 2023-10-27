@@ -1,27 +1,32 @@
 [
   {
     "show": true,
+    "id": "see-api-sec",
     "name": "上交所 APISEC 安全平台",
     "logo": "/icon/sse.png",
     "keywords": ["B 端", "Web", "后台管理系统"],
     "techStack": ["webpack", "vue", "element", "axios", "sass"],
-    "intro": "数据安全一直是重中之重。上交所 APISEC 安全平台对系统内部 API 进行全方位统计分析，将疑似被攻击的以及暴露了敏感数据的 API 通过数字、列表、图表等形式展示给用户，以便用户了解系统安全状况，及时对问题 API 进行修复。是企业数据资产安全防护的重要手段。",
+    "intro": "数据安全一直是重中之重。上交所 APISEC 安全平台可以对系统内部 API 进行全方位统计分析，将疑似被攻击的以及暴露了敏感数据的 API 通过数字、列表、图表等形式展示给用户，以便用户了解系统安全状况，及时对问题 API 进行修复。是企业数据资产安全防护的重要手段。",
     "duty": [
-      "搭建前端框架、绘制页面以及封装通用组件等。",
-      "与后端团队密切合作，参与制定接口规范、合作进行接口对接和流程优化。",
-      "参与项目发布和部署，确保系统的高效运行和安全性。"
+      "完成并上线了多个主要模块。",
+      "封装了图表组件，使 Echarts 图表组件实现自适应，解决了调整窗口尺寸时布局错乱的问题。",
+      "对选择器进行改造，封装了虚拟选择器组件，解决了部分页面的卡顿问题。",
+      "封装了前端打包发布脚本，实现了项目的自动化部署。",
+      "解决了页面缓存无效的问题。"
     ],
-    "gains": "成功交付高质量的 WMS 前端系统，为客户提供了直观、易用高效的仓库管理工具。",
-    "img": ["/project/8/1.png", "/project/8/2.png", "/project/8/3.png", "/project/8/0.png"]
+    "gains": "成功交付。",
+    "img": ["/project/10/1.png", "/project/8/2.png", "/project/8/3.png", "/project/8/0.png"]
   },
   {
     "show": true,
+    "id": "sph-wms",
     "name": "上海医药控股全国仓库管理系统",
     "logo": "/icon/sph.png",
     "keywords": ["B 端", "Web", "后台管理系统"],
     "techStack": ["vite", "vue", "element", "axios", "pinia", "sass"],
     "intro": "上海医药控股全国仓库管理系统主要用于管理上海医药在全国各地的仓储业务。本系统集成了仓间仓位管理、出入库管理、物流管理等十余项重要功能。为上海医药提供了高效的仓库管理解决方案。",
     "duty": [
+      "搭建基于 Vue 3 的前端配套开发架构。",
       "搭建前端框架、绘制页面以及封装通用组件等。",
       "与后端团队密切合作，参与制定接口规范、合作进行接口对接和流程优化。",
       "参与项目发布和部署，确保系统的高效运行和安全性。"
@@ -31,6 +36,7 @@
   },
   {
     "show": true,
+    "id": "nwpu-data-assets-serve",
     "name": "西北工业大学数据资产服务平台",
     "logo": "/icon/nwpu.png",
     "keywords": ["B 端", "Web", "监控大屏"],
@@ -41,7 +47,8 @@
     "img": ["/project/1/6.jpg", "/project/1/2.jpg", "/project/1/3.jpg", "/project/1/4.jpg", "/project/1/5.jpg"]
   },
   {
-    "show": true,
+    "show": false,
+    "id": "nwpu-data-assets-admin",
     "name": "西北工业大学数据资产管理平台",
     "logo": "/icon/nwpu.png",
     "keywords": ["B 端", "Web", "后台管理系统"],
@@ -53,6 +60,7 @@
   },
   {
     "show": true,
+    "id": "nwpu-portal",
     "name": "西北工业大学翱翔门户",
     "logo": "/icon/nwpu.png",
     "keywords": ["Web", "App", "门户"],
@@ -64,6 +72,7 @@
   },
   {
     "show": true,
+    "id": "sensetime-ai",
     "name": "商汤科技 AI 定义相机",
     "logo": "/icon/sensetime.png",
     "keywords": ["Web", "人脸识别", "视频", "实时推送"],
@@ -74,8 +83,9 @@
     "img": ["/project/3/1.png", "/project/3/2.png", "/project/3/3.png", "/project/3/4.png", "/project/3/5.png"]
   },
   {
-    "show": true,
-    "name": "艾利特机器人官网",
+    "show": false,
+    "id": "elite-robot",
+    "name": "艾利特机器人官网及官网后台",
     "logo": "/icon/sse.png",
     "keywords": ["Web"],
     "techStack": ["webpack", "nuxt", "vant", "axios", "sass"],
@@ -85,7 +95,8 @@
     "img": ["/project/6/1.png", "/project/6/2.png", "/project/6/3.png", "/project/6/4.png", "/project/6/5.png", "/project/6/6.png"]
   },
   {
-    "show": true,
+    "show": false,
+    "id": "zero-icon",
     "name": "Zero Icon 开源图标库",
     "logo": "/icon/sse.png",
     "keywords": ["组件库"],
