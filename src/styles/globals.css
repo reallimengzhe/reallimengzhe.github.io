@@ -42,10 +42,6 @@ html body .hover\:shadow:hover {
   --tw-shadow: 0 10px 20px rgba(var(--primary-color-600), 0.06) !important;
 }
 
-/* arco design reset */
-body {
-  --color-text-1: rgb(var(--text-color)) !important;
-}
 /* common start */
 
 .text-secondary {
@@ -116,18 +112,6 @@ body {
 .dark .home-header {
   background-image: linear-gradient(rgb(var(--bg-color)), transparent),
     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'><path d='M0 .5H31.5V32'/></svg>");
-}
-
-.project_viewer.arco-modal {
-  background-color: rgb(var(--bg-color));
-}
-
-.project_viewer .arco-modal-content {
-  padding: 0;
-}
-
-.arco-modal .arco-modal-close-icon {
-  z-index: 1;
 }
 
 div[class^='layout_header-background-'] {
@@ -281,11 +265,3 @@ div[class^='layout_header-background-'] {
   #1E6666
   #0F3333; 
 } */
-
-.arco-carousel-arrow > div {
-  background-color: rgba(var(--gray-10), 0.3) !important;
-}
-
-.arco-carousel-arrow > div:hover {
-  background-color: rgba(var(--gray-10), 0.5) !important;
-}

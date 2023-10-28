@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@arco-design/web-react": "^2.46.3",
     "autoprefixer": "10.4.14",
     "next": "13.3.0",
     "postcss": "8.4.21",

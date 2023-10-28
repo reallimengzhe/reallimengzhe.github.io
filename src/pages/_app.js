@@ -1,7 +1,5 @@
 import '@/styles/globals.css'
 
-import '@arco-design/web-react/dist/css/arco.css'
-
 import Head from 'next/head'
 import NavBar from '@/components/nav-bar'
 import LayoutFooter from '@/components/layout-footer'
