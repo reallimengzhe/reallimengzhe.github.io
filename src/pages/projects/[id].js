@@ -16,7 +16,7 @@ export default function Project() {
     project && (
       <main className='p-4 pt-8'>
         <div className='mx-auto max-w-7xl pb-10 mb-12 border-b border-slate-200 dark:border-slate-800'>
-          <Link href='/projects' className='text-xl flex items-center gap-2 hover:text-slate-400 transition-colors mb-8'>
+          <Link href='javascript:history.back(-1)' className='text-xl flex items-center gap-2 hover:text-slate-400 transition-colors mb-8'>
             <IconArrowLeft />
             <span>返回</span>
           </Link>

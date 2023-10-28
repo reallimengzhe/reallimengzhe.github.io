@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from 'react'
 // import * as THREE from 'three'
 // import FOG from 'vanta/dist/vanta.fog.min'
 
-import ProjectViewer from '@/components/project-viewer'
 import { setAnimation } from '@/utils'
 
 import IconArrowDown from '@/components/icon-arrow-down'
@@ -46,11 +45,6 @@ export default function Home() {
       attributeFilter: ['class'],
     })
   }, [])
-  const ProjectViewerRef = useRef(null)
-
-  function onViewProject(project) {
-    ProjectViewerRef.current.show(project)
-  }
 
   function onHtmlClassChange() {
     // if (!vanta) return
@@ -99,10 +93,10 @@ export default function Home() {
             .slice(0, 3)
             .map(project => {
               return (
-                <div
+                <Link
                   key={project.name}
                   className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-7 transition-all hover:-translate-y-1 hover:shadow'
-                  onClick={() => onViewProject(project)}
+                  href={'/projects/' + project.id}
                 >
                   <img src={project.logo} className='h-10 mb-16' />
 
@@ -139,7 +133,7 @@ export default function Home() {
                       <IconMore />
                     </div>
                   </div>
-                </div>
+                </Link>
               )
             })}
         </div>
@@ -223,8 +217,6 @@ export default function Home() {
           </div>
         </div> */}
       </main>
-
-      <ProjectViewer ref={ProjectViewerRef} />
     </>
   )
 }
