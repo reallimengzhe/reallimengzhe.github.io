@@ -91,16 +91,6 @@ html body .hover\:shadow:hover {
   opacity: 1;
 }
 
-.nav_bar-item {
-  position: relative;
-  overflow: hidden;
-}
-
-.nav_bar-item span {
-  position: relative;
-  z-index: 2;
-}
-
 /* nav bar end */
 
 /* home start */
