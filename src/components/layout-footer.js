@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className='mt-20 px-4'>
+    <footer className='px-6'>
       <div className='text-sm text-slate-400 flex flex-col items-center gap-4 md:flex-row max-w-7xl m-auto border-t border-slate-200 dark:border-slate-800 py-10'>
-        <img src='logo.svg' className='w-7 h-7' />
+        <img src='/logo.svg' className='w-7 h-7' />
         <span>© 李孟哲</span>
 
         <a href='tel:+8615538077068'>📞 155 3807 7068</a>
