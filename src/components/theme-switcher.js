@@ -50,7 +50,7 @@ export default function NavBar() {
   }
 
   return (
-    <button className={`theme_switcher flex items-center relative ml-8 h-auto w-auto p-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs`}>
+    <button className={`theme_switcher flex items-center relative h-auto w-auto p-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs`}>
       <div className={`theme_switcher-plug absolute top-1 h-5 w-5 rounded-full bg-white dark:bg-slate-950 transition-all ${plugPosition}`}></div>
       <div className={`flex h-5 w-5 items-center justify-center`} onClick={() => onChangeTheme('light')} title='浅色'>
         <IconSun className='relative z-10' />

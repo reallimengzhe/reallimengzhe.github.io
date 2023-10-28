@@ -4,23 +4,23 @@ import { useEffect, useRef } from 'react'
 import IconMore from '@/components/icon-more'
 import { setAnimation } from '@/utils'
 
+const projects = require('@/data/project.json')
+
 export default function Projects() {
   useEffect(() => {
     setAnimation(document.querySelectorAll('.page_project-item'))
   }, [])
 
-  const projects = require('@/data/project.json')
-
   return (
-    <main className='page_project relative p-4'>
-      <div className='mx-auto max-w-7xl pb-10 mb-12 border-b border-slate-200 dark:border-slate-800'>
-        <h1 className='text-5xl font-extrabold'>项目</h1>
+    <main className='page_project px-6'>
+      <div className='mx-auto max-w-7xl py-20 border-b border-slate-200 dark:border-slate-800'>
+        <h1 className='text-5xl font-extrabold mb-6'>项目</h1>
         <p className='text-lg text-slate-400'>
           我曾独立负责过多个大型项目，从立项到交付，完成了多个从 0 到 1 的实现。这是我职业生涯的宝贵经验，使我受益良多。
         </p>
       </div>
 
-      <div className='page_project-main mx-auto grid max-w-7xl gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='mx-auto max-w-7xl grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-20'>
         {projects
           .filter(item => item.show)
           .map(project => {
@@ -35,7 +35,7 @@ export default function Projects() {
 
                   <h5 className='text-xl font-bold mb-2'>{project.name}</h5>
 
-                  <div className='flex gap-2 flex-wrap mb-4 text-klein-600 dark:text-cyan-700'>
+                  <div className='flex gap-2 flex-wrap mb-4 text-klein-600 dark:text-cyan-600'>
                     {project.keywords.map(keyword => {
                       return <span key={keyword}>#{keyword}</span>
                     })}
