@@ -17,7 +17,11 @@ export default function PageResume() {
         <h1 className='text-5xl font-extrabold mb-6'>简历</h1>
 
         <p className='text-lg text-slate-400'>
-          我崇尚公开透明的人生态度。这里是我的完整简历，内容包括我的
+          这里是我的完整简历，内容包括我的
+          <span className='font-bold text-klein-600 dark:text-cyan-600' key={1}>
+            {' 联系方式'}
+          </span>
+          、
           <span className='font-bold text-klein-600 dark:text-cyan-600' key={1}>
             {' 技能'}
           </span>
@@ -182,7 +186,7 @@ export default function PageResume() {
                     })}
                   </div>
 
-                  <p className='text-slate-400'>职责或成果</p>
+                  <p className='text-slate-400'>职责与成果</p>
 
                   <ul className='list-inside list-disc grid gap-1'>
                     {project.duty.map(duty => {

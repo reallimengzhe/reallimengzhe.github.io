@@ -40,7 +40,7 @@ export default function Project() {
 
           <img src={project.img[0]} className='border border-slate-200 dark:border-slate-800 w-full rounded-xl mb-8'></img>
 
-          <h5 className='text-slate-400 text-lg mb-4'>职责或成果</h5>
+          <h5 className='text-slate-400 text-lg mb-4'>职责与成果</h5>
 
           <ul className='grid gap-2 mb-8'>
             {project.duty.map(duty => {
