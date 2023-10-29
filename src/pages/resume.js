@@ -14,7 +14,7 @@ export default function PageResume() {
   return (
     <main className='relative px-6'>
       <div className='mx-auto max-w-7xl py-20 border-b border-slate-200 dark:border-slate-800 mb-20'>
-        <h1 className='text-5xl font-extrabold mb-6'>简历</h1>
+        <h1 className='text-4xl md:text-5xl font-extrabold mb-6'>简历</h1>
 
         <p className='text-lg text-slate-400'>
           这里是我的完整简历，内容包括我的
@@ -22,15 +22,15 @@ export default function PageResume() {
             {' 联系方式'}
           </span>
           、
-          <span className='font-bold text-klein-600 dark:text-cyan-600' key={1}>
+          <span className='font-bold text-klein-600 dark:text-cyan-600' key={2}>
             {' 技能'}
           </span>
           、
-          <span className='font-bold text-klein-600 dark:text-cyan-600' key={2}>
+          <span className='font-bold text-klein-600 dark:text-cyan-600' key={3}>
             {' 教育背景 '}
           </span>
           和
-          <span className='font-bold text-klein-600 dark:text-cyan-600' key={3}>
+          <span className='font-bold text-klein-600 dark:text-cyan-600' key={4}>
             {' 职业生涯 '}
           </span>
           等。
@@ -53,24 +53,26 @@ export default function PageResume() {
           <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-200 dark:border-slate-800'>快速了解</h3>
 
           <table className='mb-2'>
-            <tr>
-              <td className='py-1'>出生年月</td>
-              <td className='py-1 font-bold'>1994 年 7 月</td>
-              <td className='py-1'>性别</td>
-              <td className='py-1 font-bold'>男</td>
-            </tr>
-            <tr>
-              <td className='py-1'>最高学历</td>
-              <td className='py-1 font-bold'>研究生</td>
-              <td className='py-1'>开发经验</td>
-              <td className='py-1 font-bold'>三年</td>
-            </tr>
-            <tr>
-              <td className='py-1'>个人主页</td>
-              <td className='py-1 font-bold'>https://reallimengzhe.github.io/</td>
-              <td className='py-1'>个人博客</td>
-              <td className='py-1 font-bold'>https://juejin.cn/user/3984285869810887/posts</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td className='py-1'>出生年月</td>
+                <td className='py-1 font-bold'>1994 年 7 月</td>
+                <td className='py-1'>性别</td>
+                <td className='py-1 font-bold'>男</td>
+              </tr>
+              <tr>
+                <td className='py-1'>最高学历</td>
+                <td className='py-1 font-bold'>研究生</td>
+                <td className='py-1'>开发经验</td>
+                <td className='py-1 font-bold'>三年</td>
+              </tr>
+              <tr>
+                <td className='py-1'>个人主页</td>
+                <td className='py-1 font-bold'>https://reallimengzhe.github.io/</td>
+                <td className='py-1'>个人博客</td>
+                <td className='py-1 font-bold'>https://juejin.cn/user/3984285869810887/posts</td>
+              </tr>
+            </tbody>
           </table>
 
           <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-200 dark:border-slate-800'>专业技能</h3>
@@ -200,7 +202,7 @@ export default function PageResume() {
       </div>
 
       <div className='block lg:hidden text-center mb-20'>
-        <p className='text-5xl mb-10'>😢</p>
+        <p className='text-5xl mb-10'>💻</p>
         <p>简历以 A4 纸尺寸进行排版，请在宽度 1024px 以上的设备、浏览器上进行查看，以获得最佳显示效果。</p>
       </div>
 

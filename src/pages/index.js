@@ -92,7 +92,7 @@ export default function Home() {
       </header>
       <div className='px-6'>
         <main className='home relative max-w-7xl py-32 mx-auto' id='main-content'>
-          <h2 className='font-bold text-2xl md:text-4xl mb-10 text-center home-module'>💎</h2>
+          <h2 className='font-bold text-3xl md:text-5xl mb-10 text-center home-module'>💎</h2>
           <h2 className='font-bold text-2xl md:text-4xl mb-20 text-center home-module'>我曾构建过多个大型项目，这对我来说游刃有余。</h2>
 
           <div className='grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16 home-module'>
@@ -103,7 +103,7 @@ export default function Home() {
                 return (
                   <Link
                     key={project.name}
-                    className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-7 transition-all hover:-translate-y-1 hover:shadow'
+                    className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 transition-all hover:-translate-y-1 hover:shadow'
                     href={'/projects/' + project.id}
                   >
                     <img src={project.logo[0]} className='h-10 mb-16 block dark:hidden' />
@@ -111,13 +111,13 @@ export default function Home() {
 
                     <h5 className='text-xl font-bold mb-2'>{project.name}</h5>
 
-                    <div className='flex gap-2 flex-wrap mb-4 text-klein-600 dark:text-cyan-600'>
+                    <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-4'>
                       {project.keywords.map(keyword => {
                         return <span key={keyword}>#{keyword}</span>
                       })}
                     </div>
 
-                    <p className='text-slate-400 mb-4'>{project.intro}</p>
+                    <p className='text-sm md:text-base text-slate-400 mb-4'>{project.intro}</p>
 
                     <div className='flex items-center mt-auto'>
                       {project.techStack.map((tech, index) => {
@@ -155,20 +155,21 @@ export default function Home() {
             <IconArrowRight />
           </Link>
 
-          <h2 className='font-bold text-2xl md:text-4xl mb-10 home-module'>📢</h2>
+          <h2 className='font-bold text-3xl md:text-5xl mb-10 home-module'>📢</h2>
           <h2 className='font-bold text-2xl md:text-4xl mb-20 home-module'>知识不应该被垄断，分享也是学习的一部分。</h2>
 
           <div className='home-post-content grid gap-8 mb-16'>
             {posts.slice(0, 5).map(post => {
               return (
                 <div className='flex home-module' key={post.title}>
-                  <img src={'/avatar.png'} className='h-16 w-16 rounded-full mr-8 mt-2' />
-                  <div className='home-post-item block flex-1 rounded-xl border border-slate-200 dark:border-slate-800 p-4 transition-all hover:-translate-y-1 hover:shadow'>
-                    <Link href={post.link} target='_blank' className={`block text-2xl font-bold mb-4`}>
+                  <img src={'/avatar.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-full mr-6 md:mr-8 mt-2' />
+
+                  <div className='home-post-item block flex-1 rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:-translate-y-1 hover:shadow'>
+                    <Link href={post.link} target='_blank' className={`block text-xl md:text-2xl font-bold mb-4`}>
                       <span>{post.title}</span>
                     </Link>
 
-                    <div className='flex gap-4 flex-wrap mb-8 text-klein-600 dark:text-cyan-600'>
+                    <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-6'>
                       {post.keywords.map(keyword => {
                         return <span key={keyword}>#{keyword}</span>
                       })}
@@ -176,9 +177,9 @@ export default function Home() {
 
                     {/* <p className='text-slate-400'> {post.time} </p> */}
 
-                    <p className='text-slate-400 mb-4'>{post.abstract}</p>
+                    <p className='text-sm md:text-base text-slate-400 mb-4'>{post.abstract}</p>
 
-                    <Link href={post.link} target='_blank' className='text-klein-600 dark:text-cyan-600 flex items-center'>
+                    <Link href={post.link} target='_blank' className='text-sm md:text-base text-klein-600 dark:text-cyan-600 flex items-center'>
                       <span> 阅读全文 </span>
                       <IconArrowRight className='ml-1' />
                     </Link>

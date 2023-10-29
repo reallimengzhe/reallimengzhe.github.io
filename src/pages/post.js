@@ -13,7 +13,7 @@ export default function Post() {
   return (
     <main className='relative px-6'>
       <div className='mx-auto max-w-7xl py-20 border-b border-slate-200 dark:border-slate-800'>
-        <h1 className='text-5xl font-extrabold mb-6'>部落格</h1>
+        <h1 className='text-4xl md:text-5xl font-extrabold mb-6'>部落格</h1>
         <p className='text-lg text-slate-400'>
           我关注
           <span className='font-bold text-klein-600 dark:text-cyan-600' key={1}>
@@ -49,13 +49,13 @@ export default function Post() {
                   {/* <IconRight className='ml-2 transition duration-300' /> */}
                 </Link>
 
-                <div className='flex gap-4 flex-wrap mb-8 text-klein-600 dark:text-cyan-600'>
+                <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-6'>
                   {post.keywords.map(keyword => {
                     return <span key={keyword}>#{keyword}</span>
                   })}
                 </div>
 
-                <p className='text-slate-400 mb-4'>{post.abstract}</p>
+                <p className='text-sm md:text-base text-slate-400 mb-4'>{post.abstract}</p>
 
                 {/* <Link href={post.link} target='_blank' className='text-klein-600 dark:text-cyan-600 flex items-center'>
                   <span> 阅读全文 </span>

@@ -30,17 +30,17 @@ export default function Project() {
             })}
           </div>
 
-          <h1 className='text-5xl font-extrabold mb-8'>{project.name}</h1>
+          <h1 className='text-3xl md:text-5xl font-extrabold mb-8'>{project.name}</h1>
 
-          <p className='text-lg text-slate-400'>{project.intro}</p>
+          <p className='text-base md:text-lg text-slate-400'>{project.intro}</p>
         </div>
 
         <div className='mx-auto max-w-7xl'>
-          <h5 className='text-slate-400 text-lg mb-4'>页面截图</h5>
+          <h5 className='text-slate-400 text-base md:text-lg mb-4'>页面截图</h5>
 
           <img src={project.img[0]} className='border border-slate-200 dark:border-slate-800 w-full rounded-xl mb-8'></img>
 
-          <h5 className='text-slate-400 text-lg mb-4'>职责与成果</h5>
+          <h5 className='text-slate-400 text-base md:text-lg mb-4'>职责与成果</h5>
 
           <ul className='grid gap-2 mb-8'>
             {project.duty.map(duty => {
@@ -48,7 +48,7 @@ export default function Project() {
             })}
           </ul>
 
-          <h5 className='text-slate-400 text-lg mb-4'>技术架构</h5>
+          <h5 className='text-slate-400 text-base md:text-lg mb-4'>技术架构</h5>
 
           <div className='flex items-center mt-auto'>
             {project.techStack.map((tech, index) => {

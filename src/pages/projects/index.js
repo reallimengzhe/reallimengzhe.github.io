@@ -14,13 +14,13 @@ export default function Projects() {
   return (
     <main className='page_project px-6'>
       <div className='mx-auto max-w-7xl py-20 border-b border-slate-200 dark:border-slate-800'>
-        <h1 className='text-5xl font-extrabold mb-6'>项目</h1>
+        <h1 className='text-4xl md:text-5xl font-extrabold mb-6'>项目</h1>
         <p className='text-lg text-slate-400'>
           我曾独立负责过多个大型项目，从立项到交付，完成了多个从 0 到 1 的实现。这是我职业生涯的宝贵经验，使我受益良多。
         </p>
       </div>
 
-      <div className='mx-auto max-w-7xl grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-20'>
+      <div className='mx-auto max-w-7xl grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-20'>
         {projects
           .filter(item => item.show)
           .map(project => {
@@ -36,13 +36,13 @@ export default function Projects() {
 
                   <h5 className='text-xl font-bold mb-2'>{project.name}</h5>
 
-                  <div className='flex gap-2 flex-wrap mb-4 text-klein-600 dark:text-cyan-600'>
+                  <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-4'>
                     {project.keywords.map(keyword => {
                       return <span key={keyword}>#{keyword}</span>
                     })}
                   </div>
 
-                  <p className='text-slate-400 mb-4'>{project.intro}</p>
+                  <p className='text-sm md:text-base text-slate-400 mb-4'>{project.intro}</p>
 
                   <div className='flex items-center mt-auto'>
                     {project.techStack.map((tech, index) => {
