@@ -67,8 +67,7 @@ export default function Home() {
         <p className='text-center text-lg mx-auto mb-20 text-slate-600 max-w-5xl leading-8'>
           你好！我是李孟哲，欢迎访问我的主页。作为一名前端开发工程师，我专注于构建{' '}
           <span className='font-bold text-klein-600 dark:text-cyan-600'>界面友好</span> 和{' '}
-          <span className='font-bold text-klein-600 dark:text-cyan-600'>用户体验友好</span>{' '}
-          的前端应用程序。对于开发这件事，技术很重要，使用技术的人更重要。
+          <span className='font-bold text-klein-600 dark:text-cyan-600'>用户体验友好</span> 的前端应用程序。技术很重要，使用技术的人更重要。
         </p>
 
         <div className='flex justify-center items-center gap-6'>
@@ -107,7 +106,8 @@ export default function Home() {
                     className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-7 transition-all hover:-translate-y-1 hover:shadow'
                     href={'/projects/' + project.id}
                   >
-                    <img src={project.logo} className='h-10 mb-16' />
+                    <img src={project.logo[0]} className='h-10 mb-16 block dark:hidden' />
+                    <img src={project.logo[1]} className='h-10 mb-16 hidden dark:block' />
 
                     <h5 className='text-xl font-bold mb-2'>{project.name}</h5>
 
