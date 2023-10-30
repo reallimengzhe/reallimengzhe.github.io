@@ -154,7 +154,7 @@ export default function PageResume() {
 
             <ul className='list-inside list-disc'>
               <li>熟练使用 canvas、websocket 等 HTML5 新特性。</li>
-              <li>熟练使用 Flex、Grid 等 CSS3 等新特性。遵循 BEM 命名规范。</li>
+              <li>熟练使用 Flex、Grid 等 CSS3 新特性。CSS 命名遵循 BEM 规范。</li>
               <li>熟练使用 async/await、Set、Map 等 JavaScript ES6+ 新特性，能够在项目中广泛且合理的运用。</li>
             </ul>
           </section>
