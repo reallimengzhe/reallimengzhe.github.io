@@ -28,11 +28,11 @@ export default function Projects() {
               <div className='page_project-item' key={project.name}>
                 <Link
                   key={project.name}
-                  className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-7 transition-all hover:-translate-y-1 hover:shadow h-full'
+                  className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-7 transition-all hover:-translate-y-1 h-full hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'
                   href={'/projects/' + project.id}
                 >
-                <img src={project.logo[0]} className='h-10 mb-16 block dark:hidden' />
-                <img src={project.logo[1]} className='h-10 mb-16 hidden dark:block' />
+                  <img src={project.logo[0]} className='h-10 mb-16 block dark:hidden' />
+                  <img src={project.logo[1]} className='h-10 mb-16 hidden dark:block' />
 
                   <h5 className='text-xl font-bold mb-2'>{project.name}</h5>
 

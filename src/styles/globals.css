@@ -3,60 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --clien-color-7: 0, 38, 135;
-  --clien-color-600: 0, 47, 167; /* main */
-  --clien-color-5: 48, 86, 183;
-  --clien-color-400: 96, 125, 199;
-  --clien-color-3: 144, 164, 215;
-  --clien-color-200: 190, 203, 232;
-  --clien-color-1: 227, 231, 243;
-
-  --aqua-color-600: 74, 255, 255; /* main */
-  --aqua-color-400: 93, 255, 255;
-  --aqua-color-200: 115, 255, 255;
-
-  --primary-color-600: var(--clien-color-600); /* main */
-  --secondary-color-600: var(--aqua-color-600); /* main */
+  --klein-color-600: 0, 47, 167; /* main */
+  --cyan-color-600: 74, 255, 255; /* main */
 
   --bg-color: 255, 255, 255;
-
-  --text-color: 48, 49, 51;
-  --text-secondary-color: 100, 116, 139;
 }
 
 .dark {
   color-scheme: dark;
 
-  --primary-color-600: var(--aqua-color-600); /* main */
-  --secondary-color-600: var(--clien-color-600); /* main */
-
   --bg-color: 2, 6, 23;
-
-  --text-color: 229, 234, 243;
-  --text-secondary-color: 100, 116, 139;
 }
-
-/* tailwind css reset */
-html body .shadow,
-html body .hover\:shadow:hover {
-  --tw-shadow: 0 10px 20px rgba(var(--primary-color-600), 0.06) !important;
-}
-
-/* common start */
-
-.text-secondary {
-  color: rgb(var(--text-secondary-color));
-}
-
-/* common end */
-/* nav bar start */
-/* .nav_bar {
-  background-color: rgba(var(--bg-color), 0.25);
-} */
 
 .nav_bar-logo {
   /* position: relative; */
-  background-color: rgb(var(--aqua-color-600));
+  background-color: rgb(var(--cyan-color-600));
   padding-left: 11px;
   padding-right: 11px;
 }
@@ -72,7 +33,7 @@ html body .hover\:shadow:hover {
   bottom: 0;
   left: 0;
   margin: auto;
-  background-color: rgb(var(--clien-color-600));
+  background-color: rgb(var(--klein-color-600));
   transform: rotate(21deg);
   border-radius: 3px;
 }
@@ -106,111 +67,6 @@ html body .hover\:shadow:hover {
     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'><path d='M0 .5H31.5V32'/></svg>");
 }
 
-div[class^='layout_header-background-'] {
-  width: fit-content;
-}
-
-.layout_header-background-1 {
-  animation: floating-1 60s linear infinite;
-}
-
-@keyframes floating-1 {
-  0% {
-    left: -50%;
-  }
-  25% {
-    left: 0;
-  }
-  50% {
-    left: 50%;
-  }
-  75% {
-    left: 0;
-  }
-  100% {
-    left: -50%;
-  }
-}
-
-.layout_header-background-2 {
-  animation: floating-2 90s linear infinite;
-  /* left: 0;
-  right: 0;
-  margin: auto; */
-}
-
-@keyframes floating-2 {
-  0% {
-    transform: translateX(-50%);
-  }
-  25% {
-    /* left: 50%; */
-    transform: translateX(0%);
-  }
-  50% {
-    /* left: 0%; */
-    transform: translateX(50%);
-  }
-  75% {
-    /* left: 0%; */
-    transform: translateX(0%);
-  }
-  100% {
-    /* left: 0%; */
-    transform: translateX(-50%);
-  }
-}
-
-.layout_header-background-3 {
-  animation: floating-3 120s linear infinite;
-}
-
-@keyframes floating-3 {
-  0% {
-    right: -50%;
-  }
-  25% {
-    right: 0;
-  }
-  50% {
-    right: 50%;
-  }
-  75% {
-    right: 0;
-  }
-  100% {
-    right: -50%;
-  }
-}
-
-/* .dark .layout_header {
-  background-image: radial-gradient(closest-side, rgba(0, 47, 167, 0.8), transparent),
-    radial-gradient(closest-side, rgb(255, 220, 220, 0.3), transparent),
-    radial-gradient(closest-side, rgba(190, 170, 240, 0.3), transparent),
-    radial-gradient(closest-side, rgba(74, 255, 255, 0.2), transparent);
-} */
-
-:root {
-  --header-light-size: 120% 240%, 160% 240%, 160% 240%, 120% 240%;
-  --header-light-position: top 120% left 320%, top 120% right 100%, bottom 120% left 120%, bottom 80% right 260%;
-}
-
-@keyframes lightTrail {
-  0%,
-  100% {
-    background-position: var(--header-light-position);
-  }
-  25% {
-    background-position: top 120% left 280%, top 120% right 120%, bottom 120% left 140%, bottom 120% right 80%;
-  }
-  50% {
-    background-position: top 120% left 180%, top 80% right 160%, bottom 120% left 100%, bottom 50% right -120%;
-  }
-  75% {
-    background-position: top 120% left 280%, top 120% right 80%, bottom 120% left 140%, bottom 100% right 0%;
-  }
-}
-
 .home-module,
 .page_project-item,
 .page_post-item {
@@ -231,29 +87,3 @@ div[class^='layout_header-background-'] {
     opacity: 1;
   }
 }
-
-/* .test {
-  color:#B2C9E7
-  #93B2DA
-  #748CCF
-  #5566C4
-  #3740B9
-  #1F1AAF
-  #002FA7
-  #002885
-  #002262
-  #001C40
-  #00161E;
-
-  color: #B2FFFF
-  #9DFFFF
-  #88FFFF
-  #73FFFF
-  #5DFFFF
-  #48FFFF
-  #4AFFFF
-  #3BCCCC
-  #2C9999
-  #1E6666
-  #0F3333; 
-} */

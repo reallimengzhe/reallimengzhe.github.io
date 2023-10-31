@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
-// import * as THREE from 'three'
-// import FOG from 'vanta/dist/vanta.fog.min'
 
 import { setAnimation } from '@/utils'
 
@@ -13,49 +11,9 @@ const projects = require('@/data/project.json')
 const posts = require('@/data/post.json')
 
 export default function Home() {
-  // let vanta = null
-
-  // const vantaRef = useRef(null)
-
   useEffect(() => {
     setAnimation(document.querySelectorAll('.home-module'))
-
-    // vanta = FOG({
-    //   el: vantaRef.current,
-    //   THREE: THREE, // use a custom THREE when initializing
-    //   highlightColor: 0x4affff,
-    //   lowlightColor: 0x002fa7,
-    //   baseColor: 0xffffff,
-    //   midtoneColor: 0xffffff,
-    //   // mouseControls: true,
-    //   // touchControls: true,
-    //   // gyroControls: false,
-    //   // minHeight: 200.0,
-    //   // minWidth: 200.0,
-    //   speed: 3.0,
-    //   // zoom: 0.7,
-    // })
-
-    onHtmlClassChange()
-
-    const observer = new MutationObserver(onHtmlClassChange)
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    })
   }, [])
-
-  function onHtmlClassChange() {
-    // if (!vanta) return
-    // const value = document.documentElement.classList.contains('dark')
-    // vanta.setOptions({
-    //   highlightColor: value ? 0x002fa7 : 0x4affff,
-    //   lowlightColor: value ? 0x4affff : 0x002fa7,
-    //   baseColor: value ? 0x0 : 0xffffff,
-    //   midtoneColor: value ? 0x0 : 0xffffff,
-    // })
-  }
 
   return (
     <>
@@ -103,7 +61,7 @@ export default function Home() {
                 return (
                   <Link
                     key={project.name}
-                    className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 transition-all hover:-translate-y-1 hover:shadow'
+                    className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'
                     href={'/projects/' + project.id}
                   >
                     <img src={project.logo[0]} className='h-10 mb-16 block dark:hidden' />
@@ -164,7 +122,7 @@ export default function Home() {
                 <div className='flex home-module' key={post.title}>
                   <img src={'/avatar.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-full mr-6 md:mr-8 mt-2' />
 
-                  <div className='home-post-item block flex-1 rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:-translate-y-1 hover:shadow'>
+                  <div className='flex-1 rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'>
                     <Link href={post.link} target='_blank' className={`block text-xl md:text-2xl font-bold mb-4`}>
                       <span>{post.title}</span>
                     </Link>
@@ -196,36 +154,6 @@ export default function Home() {
             <span> 查看更多 </span>
             <IconArrowRight />
           </Link>
-
-          {/* <div className='px-6 py-4'>
-          <div className='mb-4 flex'>
-            <Link
-              href='https://www.zzuli.edu.cn/'
-              target='_blank'
-              className='flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border'
-            >
-              <img src='/icon/zuli.svg' className='h-full w-full' />
-            </Link>
-            <div className='ml-4 flex-1 border-b pb-6 pt-1'>
-              <p className='pb-2'>郑州轻工业大学</p>
-              <p>视觉传达 · 本科</p>
-            </div>
-          </div>
-
-          <div className='flex'>
-            <Link
-              href='https://www.londonmet.ac.uk/'
-              target='_blank'
-              className='flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border'
-            >
-              <img src='/icon/lmu.svg' className='h-full w-full' />
-            </Link>
-            <div className='ml-4 flex-1 py-1'>
-              <p className='pb-2'>伦敦城市大学</p>
-              <p>工商管理 · 硕士研究生</p>
-            </div>
-          </div>
-        </div> */}
         </main>
       </div>
     </>
