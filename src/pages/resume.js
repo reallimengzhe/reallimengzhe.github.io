@@ -19,7 +19,7 @@ export default function PageResume() {
 
   return (
     <main className='relative px-6'>
-      <div className='mx-auto max-w-7xl py-20 border-b border-slate-200 dark:border-slate-800 mb-20'>
+      <div className='mx-auto max-w-7xl py-20 border-b border-slate-100 dark:border-slate-900 mb-20'>
         <h1 className='text-4xl md:text-5xl font-extrabold mb-6'>简历</h1>
 
         <p className='text-lg text-slate-400'>
@@ -43,7 +43,7 @@ export default function PageResume() {
         </p>
       </div>
 
-      <div className='max-w-4xl mx-auto px-16 py-24 border border-slate-200 dark:border-slate-800 mb-20 bg-white dark:opacity-60 hidden lg:block'>
+      <div className='max-w-4xl mx-auto px-16 py-24 border border-slate-100 dark:border-slate-900 mb-20 bg-white dark:opacity-60 hidden lg:block'>
         <div id='the_resume-main' className='grid gap-6 text-sm text-black'>
           <section className='grid gap-2'>
             <h2 className='text-center text-2xl font-bold'>李孟哲</h2>
@@ -56,7 +56,7 @@ export default function PageResume() {
             <p className='text-center'>&lt;前端开发工程师 /&gt;</p>
           </section>
 
-          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-200 dark:border-slate-800'>快速了解</h3>
+          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>快速了解</h3>
 
           <table className='mb-2'>
             <tbody>
@@ -81,10 +81,10 @@ export default function PageResume() {
             </tbody>
           </table>
 
-          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-200 dark:border-slate-800'>教育与工作经历</h3>
+          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>教育与工作经历</h3>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-800'>上海喜树信息科技有限公司 · 前端开发工程师 · 研发部</h4>
+            <h4 className='font-bold dark:border-slate-900'>上海喜树信息科技有限公司 · 前端开发工程师 · 研发部</h4>
 
             <i className='text-slate-400'>2023 年 9 月 - 至今</i>
 
@@ -95,7 +95,7 @@ export default function PageResume() {
           </section>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-800'>伦敦城市大学 · 全日制硕士研究生 </h4>
+            <h4 className='font-bold dark:border-slate-900'>伦敦城市大学 · 全日制硕士研究生 </h4>
 
             <i className='text-slate-400'>2022 年 3 月 - 2023 年 6 月</i>
 
@@ -106,7 +106,7 @@ export default function PageResume() {
           </section>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-800'>上海商汤智能科技有限公司 · 前端开发工程师 · 智慧城市与商业事业群</h4>
+            <h4 className='font-bold dark:border-slate-900'>上海商汤智能科技有限公司 · 前端开发工程师 · 智慧城市与商业事业群</h4>
 
             <i className='text-slate-400'>2020 年 10 月 - 2022年 2 月</i>
 
@@ -121,7 +121,7 @@ export default function PageResume() {
           </section>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-800'>上海树维信息科技有限公司 · 前端开发工程师 · 平台产品研发部</h4>
+            <h4 className='font-bold dark:border-slate-900'>上海树维信息科技有限公司 · 前端开发工程师 · 平台产品研发部</h4>
 
             <i className='text-slate-400'>2019 年 5 月 - 2020 年 10 月</i>
 
@@ -136,7 +136,7 @@ export default function PageResume() {
           </section>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-800'>郑州轻工业大学 · 本科</h4>
+            <h4 className='font-bold dark:border-slate-900'>郑州轻工业大学 · 本科</h4>
 
             <i className='text-slate-400'>2013 年 9 月 - 2017 年 7 月</i>
 
@@ -147,10 +147,10 @@ export default function PageResume() {
             </ul>
           </section>
 
-          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-200 dark:border-slate-800'>专业技能</h3>
+          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>专业技能</h3>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-800'>前端基础</h4>
+            <h4 className='font-bold dark:border-slate-900'>前端基础</h4>
 
             <ul className='list-inside list-disc'>
               <li>熟练使用 canvas、websocket 等 HTML5 新特性。</li>
@@ -159,7 +159,7 @@ export default function PageResume() {
             </ul>
           </section>
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-800'>框架与其它</h4>
+            <h4 className='font-bold dark:border-slate-900'>框架与其它</h4>
             <ul className='list-inside list-disc'>
               <li>熟练开发基于 Vue 2.x、Vue 3.x 的应用并理解其原理。</li>
               <li>熟悉 React，有实际项目的开发经验。</li>
@@ -170,14 +170,14 @@ export default function PageResume() {
             </ul>
           </section>
 
-          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-200 dark:border-slate-800'>项目经验</h3>
+          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>项目经验</h3>
 
           {projects
             .filter(item => item.show)
             .map(project => {
               return (
                 <section key={project.name} className='grid gap-2'>
-                  <h4 className='font-bold dark:border-slate-800'>{project.name}</h4>
+                  <h4 className='font-bold dark:border-slate-900'>{project.name}</h4>
 
                   <p className='text-slate-400'>项目简介</p>
 

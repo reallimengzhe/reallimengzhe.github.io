@@ -17,10 +17,8 @@ export default function Home() {
 
   return (
     <>
-      <header className='home-header relative overflow-hidden px-6 py-32 md:py-48 bg-bottom border-b border-slate-200 dark:border-slate-800'>
-        {/* <div ref={vantaRef} className='absolute bottom-0 left-0 right-0 top-0'></div> */}
-
-        <h1 className='text-center font-extrabold text-4xl md:text-6xl mb-12'>有朋自远方来，不亦乐乎。 🎈</h1>
+      <header className='home-header relative overflow-hidden px-6 pt-32 pb-48 md:pt-40 md:pb-56 bg-bottom border-b border-slate-100 dark:border-slate-900'>
+        <h1 className='text-center font-extrabold text-4xl md:text-6xl mb-12'>有朋自远方来，不亦乐乎。🎈</h1>
 
         <p className='text-center text-lg mx-auto mb-20 text-slate-600 max-w-5xl leading-8'>
           你好！我是李孟哲，欢迎访问我的主页。作为一名前端开发工程师，我专注于构建{' '}
@@ -61,7 +59,7 @@ export default function Home() {
                 return (
                   <Link
                     key={project.name}
-                    className='flex flex-col items-start rounded-xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'
+                    className='flex flex-col items-start rounded-xl border border-slate-100 dark:border-slate-900 p-6 md:p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'
                     href={'/projects/' + project.id}
                   >
                     <img src={project.logo[0]} className='h-10 mb-16 block dark:hidden' />
@@ -122,7 +120,7 @@ export default function Home() {
                 <div className='flex home-module' key={post.title}>
                   <img src={'/avatar.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-full mr-6 md:mr-8 mt-2' />
 
-                  <div className='flex-1 rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'>
+                  <div className='flex-1 rounded-xl border border-slate-100 dark:border-slate-900 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'>
                     <Link href={post.link} target='_blank' className={`block text-xl md:text-2xl font-bold mb-4`}>
                       <span>{post.title}</span>
                     </Link>

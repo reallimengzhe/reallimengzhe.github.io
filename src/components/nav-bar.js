@@ -8,9 +8,13 @@ export default function NavBar() {
   const { pathname } = useRouter()
 
   return (
-    <nav className='nav_bar sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 px-6 backdrop-blur bg-white/70 dark:bg-slate-950/70'>
-      <main className='max-w-7xl h-20 mx-auto flex items-center gap-4'>
-        <Link href='/' className='nav_bar-logo flex h-7 w-auto items-center rounded-full text-xs text-black'>
+    <nav className='nav_bar sticky top-0 z-50 w-full border-b border-slate-100 dark:border-slate-900 px-6 backdrop-blur bg-white/70 dark:bg-slate-950/70'>
+      <main className='max-w-7xl h-16 mx-auto flex items-center gap-4'>
+        <Link
+          href='/'
+          className='nav_bar-logo flex h-7 w-auto items-center rounded-full text-xs text-black bg-cyan-600'
+          style={{ padding: '0 11px' }}
+        >
           <span>首页</span>
         </Link>
 

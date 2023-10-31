@@ -15,18 +15,10 @@
   --bg-color: 2, 6, 23;
 }
 
-.nav_bar-logo {
-  /* position: relative; */
-  background-color: rgb(var(--cyan-color-600));
-  padding-left: 11px;
-  padding-right: 11px;
-}
-
 .nav_bar-logo::before {
   content: '';
   width: 6px;
   height: 12px;
-  /* position: absolute; */
 
   top: 0;
   right: 0;

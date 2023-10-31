@@ -33,7 +33,7 @@ export default function Page({ projects }) {
   return (
     project && (
       <main className='px-6 py-10'>
-        <div className='mx-auto max-w-7xl pb-10 mb-10 border-b border-slate-200 dark:border-slate-800'>
+        <div className='mx-auto max-w-7xl pb-10 mb-10 border-b border-slate-100 dark:border-slate-900'>
           <Link
             href='javascript:history.back(-1)'
             className='flex items-center gap-2 text-slate-400 hover:text-slate-600 transition-colors mb-10 w-fit'
@@ -56,7 +56,7 @@ export default function Page({ projects }) {
         <div className='mx-auto max-w-7xl'>
           <h5 className='text-slate-400 text-base md:text-lg mb-4'>页面截图</h5>
 
-          <img src={project.img[0]} className='border border-slate-200 dark:border-slate-800 w-full rounded-xl mb-8'></img>
+          <img src={project.img[0]} className='border border-slate-100 dark:border-slate-900 w-full rounded-xl mb-8'></img>
 
           <h5 className='text-slate-400 text-base md:text-lg mb-4'>职责与成果</h5>
 

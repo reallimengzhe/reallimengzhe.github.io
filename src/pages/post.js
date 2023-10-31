@@ -12,7 +12,7 @@ export default function Post() {
 
   return (
     <main className='relative px-6'>
-      <div className='mx-auto max-w-7xl py-20 border-b border-slate-200 dark:border-slate-800'>
+      <div className='mx-auto max-w-7xl py-20 border-b border-slate-100 dark:border-slate-900'>
         <h1 className='text-4xl md:text-5xl font-extrabold mb-6'>部落格</h1>
         <p className='text-lg text-slate-400'>
           我关注
