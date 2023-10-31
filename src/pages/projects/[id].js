@@ -4,11 +4,29 @@ import { useRouter } from 'next/router'
 import IconArrowBack from '@/components/icon-arrow-back'
 import IconMore from '@/components/icon-more'
 
-export default function Project() {
+export async function getStaticPaths() {
+  const projects = require('@/data/project.json')
+
+  return {
+    // paths: [{ params: { name: 'sse-api-sec' } }],
+    paths: projects.map(project => {
+      return { params: { id: project.id } }
+    }),
+    fallback: false, // false or "blocking"
+  }
+}
+
+export async function getStaticProps() {
+  // Fetch data from external API
+  const projects = require('@/data/project.json')
+
+  // Pass data to the page via props
+  return { props: { projects } }
+}
+
+export default function Page({ projects }) {
   const router = useRouter()
   const { id } = router.query
-
-  const projects = require('@/data/project.json')
 
   const project = projects.find(item => item.id === id)
 
