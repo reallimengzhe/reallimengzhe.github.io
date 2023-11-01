@@ -21,9 +21,9 @@ export default function Home() {
         <h1 className='text-center font-extrabold text-4xl md:text-6xl mb-12'>有朋自远方来，不亦乐乎。🎈</h1>
 
         <p className='text-center text-lg mx-auto mb-20 text-slate-600 max-w-5xl leading-8'>
-          你好！我是李孟哲，欢迎访问我的主页。作为一名前端开发工程师，我专注于构建{' '}
+          你好！我是李孟哲，欢迎来到我的个人主页。作为一名前端开发工程师，我专注于构建{' '}
           <span className='font-bold text-klein-600 dark:text-cyan-600'>界面友好</span> 和{' '}
-          <span className='font-bold text-klein-600 dark:text-cyan-600'>用户体验友好</span> 的前端应用程序。技术很重要，使用技术的人更重要。
+          <span className='font-bold text-klein-600 dark:text-cyan-600'>用户体验友好</span> 的所有前端应用程序。—— 技术很重要，使用技术的人更重要。
         </p>
 
         <div className='flex justify-center items-center gap-6'>
