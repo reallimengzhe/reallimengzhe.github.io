@@ -8,7 +8,7 @@ export default function NavBar() {
   const { pathname } = useRouter()
 
   return (
-    <nav className='nav_bar sticky top-0 z-50 w-full border-b border-slate-100 dark:border-slate-900 px-6 backdrop-blur bg-white/70 dark:bg-slate-950/70'>
+    <nav className='nav_bar sticky top-0 z-50 w-full border-b border-slate-100 dark:border-slate-900 px-6 backdrop-blur bg-white/50 dark:bg-slate-950/70'>
       <main className='max-w-7xl h-16 mx-auto flex items-center gap-4'>
         <Link
           href='/'
