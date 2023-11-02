@@ -33,7 +33,7 @@ export default function Page({ projects }) {
   return (
     project && (
       <>
-        <img src='/background.png' className='fixed top-0 right-0 max-w-7xl  opacity-80 dark:opacity-30' />
+        <img src='/background.png' className='fixed top-0 max-w-4xl -right-56 md:-right-32 md:max-w-5xl xl:right-0 xl:max-w-7xl opacity-80 dark:opacity-30' />
 
         <main className='px-6 py-10 relative z-10'>
           <div className='mx-auto max-w-7xl pb-10 mb-10 border-b border-slate-100 dark:border-slate-900'>
