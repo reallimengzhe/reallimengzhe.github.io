@@ -9,23 +9,48 @@
 
 <url>
   <loc>http://limengzhe.com/</loc>
-  <lastmod>2023-10-30T06:25:50+00:00</lastmod>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>http://limengzhe.com/projects</loc>
-  <lastmod>2023-10-30T06:25:50+00:00</lastmod>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://limengzhe.com/post</loc>
-  <lastmod>2023-10-30T06:25:50+00:00</lastmod>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://limengzhe.com/resume</loc>
-  <lastmod>2023-10-30T06:25:50+00:00</lastmod>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://limengzhe.com/projects/see-api-sec</loc>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://limengzhe.com/projects/sph-wms</loc>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://limengzhe.com/projects/nwpu-data-assets-serve</loc>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://limengzhe.com/projects/nwpu-portal</loc>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://limengzhe.com/projects/sensetime-ai</loc>
+  <lastmod>2023-11-02T02:16:43+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
