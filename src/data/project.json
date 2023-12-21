@@ -5,10 +5,10 @@
     "name": "上交所 APISEC 安全平台",
     "logo": ["/icon/sse.png", "/icon/sse-white.png"],
     "keywords": ["数据安全", "数据资产", "后台管理"],
-    "techStack": ["webpack", "vue", "element", "echarts", "axios", "sass"],
+    "techStack": ["vite", "vue", "element", "echarts", "axios", "pinia", "sass"],
     "intro": "由于数据安全的重要性，上交所 APISEC 安全平台提供了对系统内部 API 进行全方位监测统计分析的功能，将疑似被攻击的以及暴露了敏感数据的 API 通过表格、图表等形式展示给用户，以便用户及时了解系统安全状况，从而进行及时的修复。该平台是数据资产安全防护的重要手段。",
     "duty": [
-      "完成并上线了多个主要模块。",
+      "主导从 Webpack + Vue2 到 Vite + Vue3 的前端架构升级工作。",
       "封装图表组件，使 Echarts 图表组件实现自适应，解决了调整窗口尺寸时布局错乱的问题。",
       "封装虚拟选择器组件，提高了团队开发效率，解决了数据量过大时页面的卡顿问题。",
       "通过 keepalive 实现页面缓存功能。"

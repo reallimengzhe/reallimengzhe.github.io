@@ -81,7 +81,7 @@ export default function PageResume() {
             </tbody>
           </table>
 
-          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>教育与工作经历</h3>
+          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>时间线</h3>
 
           <section className='grid gap-2'>
             <h4 className='font-bold dark:border-slate-900'>上海喜树信息科技有限公司 · 前端开发工程师 · 研发部</h4>
@@ -90,6 +90,7 @@ export default function PageResume() {
 
             <ul className='list-inside list-disc grid gap-1'>
               <li>负责 APISEC 安全平台前端开发工作。</li>
+              <li>主导从 Webpack + Vue2 到 Vite + Vue3 的前端架构升级工作。</li>
               <li>解决前端团队技术难题，提供前端技术解决方案。</li>
             </ul>
           </section>
@@ -108,7 +109,7 @@ export default function PageResume() {
           <section className='grid gap-2'>
             <h4 className='font-bold dark:border-slate-900'>上海商汤智能科技有限公司 · 前端开发工程师 · 智慧城市与商业事业群</h4>
 
-            <i className='text-slate-400'>2020 年 10 月 - 2022年 2 月</i>
+            <i className='text-slate-400'>2020 年 10 月 - 2022 年 2 月</i>
 
             <ul className='list-inside list-disc grid gap-1'>
               <li>负责 AI 定义相机 整个产品线的前端开发。</li>
@@ -218,7 +219,7 @@ export default function PageResume() {
 
       <div className='block lg:hidden text-center mb-20'>
         <p className='text-5xl mb-10'>💻</p>
-        <p>简历以 A4 纸尺寸进行排版，请在宽度 1024px 以上的设备、浏览器上进行查看，以获得最佳显示效果。</p>
+        <p>简历以 A4 纸尺寸进行排版，请在宽度 1024px 以上的设备、浏览器上进行查看，以便获得最佳显示效果。</p>
       </div>
     </main>
   )
