@@ -180,7 +180,7 @@ export default function PageResume() {
                 <section key={project.name} className='grid gap-2'>
                   <div className='flex'>
                     <h4 className='font-bold dark:border-slate-900'>{project.name}</h4>
-                    <p className='ml-auto'>{project.company?.join('、')}</p>
+                    <p className='text-slate-400'>（{project.company?.join('、')}）</p>
                   </div>
 
                   <p className='text-slate-400'>项目简介</p>

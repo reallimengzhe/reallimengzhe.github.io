@@ -1,34 +1,34 @@
 [
   {
     "show": true,
-    "id": "see-api-sec",
-    "name": "APISEC 安全平台",
-    "company": ["上交所", "哈啰单车"],
-    "logo": ["/icon/sse.png", "/icon/sse-white.png"],
+    "id": "api-sec",
+    "name": "API 安全平台",
+    "company": ["麦当劳中国", "上海国际港务集团", "江苏国网电力"],
+    "logo": ["/icon/mcdonalds.png", "/icon/mcdonalds-white.png"],
     "keywords": ["数据安全", "数据资产", "后台管理"],
     "techStack": ["vite", "vue", "element", "echarts", "axios", "pinia", "sass"],
     "intro": "数据安全在信息时代尤为重要，APISEC 安全平台可以为客户系统的 API 进行全方位监测扫描，然后进行统计分析，将暴露的敏感数据、发生的异常行为，以及 API 的漏洞通过表格、图表等形式展示给用户，以便用户及时了解系统安全状况，并及时进行阻断和修复。该平台是数据资产安全防护的重要手段。",
     "duty": [
       "主导从 Webpack + Vue 2 到 Vite + Vue 3 的前端架构升级工作。",
-      "封装图表组件，使 Echarts 图表组件实现自适应，解决了调整窗口尺寸时布局错乱的问题。",
+      "封装图表组件，实现所有页面图表尺寸自适应。",
       "封装虚拟选择器组件，提高了团队开发效率，解决了数据量过大时页面的卡顿问题。",
-      "通过 keepalive 实现页面缓存功能。"
+      "实现基于 Websocket 的实时告警推送功能。"
     ],
     "img": ["/project/10/1.png", "/project/8/2.png", "/project/8/3.png", "/project/8/0.png"]
   },
   {
     "show": true,
     "id": "sph-wms",
-    "name": "全国仓库管理系统",
+    "name": "仓库管理系统",
     "company": ["上海医药控股"],
     "logo": ["/icon/sph.png", "/icon/sph.png"],
     "keywords": ["仓库管理", "后台管理"],
     "techStack": ["vite", "vue", "element", "axios", "pinia", "sass"],
-    "intro": "上海医药控股在全国各地有百余个仓库，该系统用于在线管理上海医药在全国各地的仓储业务。集成了仓间仓位管理、入库管理、出库管理和物流管理等十余个模块，为上海医药提供了高效的仓库管理解决方案。",
+    "intro": "上海医药控股在全国各地建有百余个仓库，该系统用于在线管理上海医药在全国各地的仓储业务，集成了仓库、仓间、仓位管理、出入库管理、物流管理等十余个模块，为上海医药提供高效的一站式仓库管理解决方案。",
     "duty": [
       "搭建基于 Vue 3 的前端配套开发架构。",
-      "设计并实现了基于服务端的权限管理系统，允许管理员对不同仓库下、角色下的用户分配不同的菜单和功能。",
-      "封装十余款通用组件，提高了前端开发效率。",
+      "设计并实现了基于服务端的权限管理系统，允许管理员对不同仓库下、角色下的用户分配不同的权限。",
+      "封装十余款通用业务组件，提高前端开发效率。",
       "参与制定接口规范，从业务角度结合用户体验对操作流程进行梳理和优化。"
     ],
     "img": ["/project/8/1.png", "/project/8/2.png", "/project/8/3.png", "/project/8/0.png"]
@@ -76,7 +76,8 @@
   {
     "show": true,
     "id": "sensetime-ai",
-    "name": "商汤科技 AI 定义相机",
+    "name": "AI 定义相机",
+    "company": ["商汤科技"],
     "logo": ["/icon/sensetime.png", "/icon/sensetime-white.png"],
     "keywords": ["人脸识别", "监控视频", "实时推送", "安防"],
     "techStack": ["webpack", "vue", "typescript", "element", "axios", "sass"],
@@ -88,6 +89,7 @@
     "show": false,
     "id": "elite-robot",
     "name": "艾利特机器人官网及官网后台",
+    "company": ["苏州艾利特机器人"],
     "logo": ["/icon/sensetime.png", "/icon/sensetime-white.png"],
     "keywords": ["官网", "SSR"],
     "techStack": ["webpack", "nuxt", "vant", "axios", "sass"],
@@ -101,6 +103,7 @@
     "show": false,
     "id": "zero-icon",
     "name": "Zero Icon 开源图标库",
+    "company": [],
     "logo": ["/icon/sensetime.png", "/icon/sensetime-white.png"],
     "keywords": ["组件库"],
     "techStack": ["vue", "svg"],
