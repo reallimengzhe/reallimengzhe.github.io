@@ -67,10 +67,10 @@ export default function PageResume() {
                 <td className='py-1 font-bold pl-2'>男</td>
               </tr>
               <tr>
-                <td className='py-1'>最高学位</td>
-                <td className='py-1 font-bold pl-2'>硕士</td>
+                <td className='py-1'>最高学历</td>
+                <td className='py-1 font-bold pl-2'>硕士研究生</td>
                 <td className='py-1'>开发经验</td>
-                <td className='py-1 font-bold pl-2'>三年</td>
+                <td className='py-1 font-bold pl-2'>5 年</td>
               </tr>
               <tr>
                 <td className='py-1'>个人主页</td>
@@ -86,12 +86,12 @@ export default function PageResume() {
           <section className='grid gap-2'>
             <h4 className='font-bold dark:border-slate-900'>上海喜树信息科技有限公司 · 前端开发工程师 · 研发部</h4>
 
-            <i className='text-slate-400'>2023 年 9 月 - 至今</i>
+            <i className='text-slate-400'>2023 年 8 月 - 至今</i>
 
             <ul className='list-inside list-disc grid gap-1'>
-              <li>负责 APISEC 安全平台前端开发工作。</li>
-              <li>主导从 Webpack + Vue2 到 Vite + Vue3 的前端架构升级工作。</li>
-              <li>解决前端团队技术难题，提供前端技术解决方案。</li>
+              <li>负责公司所有产品的前端开发工作。</li>
+              <li>主导从 Webpack + Vue 2 到 Vite + Vue 3 的前端架构升级工作。</li>
+              <li>主导前端性能优化工作，使前端打包时间节省 52.7%，打包体积减少 46%。</li>
             </ul>
           </section>
 
@@ -117,7 +117,7 @@ export default function PageResume() {
               <li>实现基于 Websocket 的即时推送功能。</li>
               <li>对旧项目进行性能优化，减少约 500MB 的前端内存空间占用。</li>
               <li>参与需求评审和技术讨论，提供前端解决方案，确保项目落地可行性和合理性。</li>
-              <li className='font-bold'>荣获公司 2021年年度最佳解决方案奖。</li>
+              <li className='font-bold'>荣获公司 2021 年年度最佳解决方案奖。</li>
             </ul>
           </section>
 
@@ -154,7 +154,7 @@ export default function PageResume() {
             <h4 className='font-bold dark:border-slate-900'>前端基础</h4>
 
             <ul className='list-inside list-disc'>
-              <li>熟练使用 canvas、websocket 等 HTML5 新特性。</li>
+              <li>熟练使用 Canvas、WebSocket 等 HTML5 新特性。</li>
               <li>熟练使用 Flex、Grid 等 CSS3 新特性。CSS 命名遵循 BEM 规范。</li>
               <li>熟练使用 async/await、Set、Map 等 JavaScript ES6+ 新特性，能够在项目中广泛且合理的运用。</li>
             </ul>
@@ -178,7 +178,10 @@ export default function PageResume() {
             .map(project => {
               return (
                 <section key={project.name} className='grid gap-2'>
-                  <h4 className='font-bold dark:border-slate-900'>{project.name}</h4>
+                  <div className='flex'>
+                    <h4 className='font-bold dark:border-slate-900'>{project.name}</h4>
+                    <p className='ml-auto'>{project.company?.join('、')}</p>
+                  </div>
 
                   <p className='text-slate-400'>项目简介</p>
 

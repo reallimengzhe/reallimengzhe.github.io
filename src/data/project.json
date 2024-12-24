@@ -2,13 +2,14 @@
   {
     "show": true,
     "id": "see-api-sec",
-    "name": "上交所 APISEC 安全平台",
+    "name": "APISEC 安全平台",
+    "company": ["上交所", "哈啰单车"],
     "logo": ["/icon/sse.png", "/icon/sse-white.png"],
     "keywords": ["数据安全", "数据资产", "后台管理"],
     "techStack": ["vite", "vue", "element", "echarts", "axios", "pinia", "sass"],
-    "intro": "由于数据安全的重要性，上交所 APISEC 安全平台提供了对系统内部 API 进行全方位监测统计分析的功能，将疑似被攻击的以及暴露了敏感数据的 API 通过表格、图表等形式展示给用户，以便用户及时了解系统安全状况，从而进行及时的修复。该平台是数据资产安全防护的重要手段。",
+    "intro": "数据安全在信息时代尤为重要，APISEC 安全平台可以为客户系统的 API 进行全方位监测扫描，然后进行统计分析，将暴露的敏感数据、发生的异常行为，以及 API 的漏洞通过表格、图表等形式展示给用户，以便用户及时了解系统安全状况，并及时进行阻断和修复。该平台是数据资产安全防护的重要手段。",
     "duty": [
-      "主导从 Webpack + Vue2 到 Vite + Vue3 的前端架构升级工作。",
+      "主导从 Webpack + Vue 2 到 Vite + Vue 3 的前端架构升级工作。",
       "封装图表组件，使 Echarts 图表组件实现自适应，解决了调整窗口尺寸时布局错乱的问题。",
       "封装虚拟选择器组件，提高了团队开发效率，解决了数据量过大时页面的卡顿问题。",
       "通过 keepalive 实现页面缓存功能。"
@@ -18,11 +19,12 @@
   {
     "show": true,
     "id": "sph-wms",
-    "name": "上海医药控股全国仓库管理系统",
+    "name": "全国仓库管理系统",
+    "company": ["上海医药控股"],
     "logo": ["/icon/sph.png", "/icon/sph.png"],
     "keywords": ["仓库管理", "后台管理"],
     "techStack": ["vite", "vue", "element", "axios", "pinia", "sass"],
-    "intro": "该系统用于管理上海医药在全国各地的仓储业务。集成了仓间仓位管理、入库管理、出库管理和物流管理等十余个模块，为上海医药提供了高效的仓库管理解决方案。",
+    "intro": "上海医药控股在全国各地有百余个仓库，该系统用于在线管理上海医药在全国各地的仓储业务。集成了仓间仓位管理、入库管理、出库管理和物流管理等十余个模块，为上海医药提供了高效的仓库管理解决方案。",
     "duty": [
       "搭建基于 Vue 3 的前端配套开发架构。",
       "设计并实现了基于服务端的权限管理系统，允许管理员对不同仓库下、角色下的用户分配不同的菜单和功能。",
@@ -34,7 +36,8 @@
   {
     "show": true,
     "id": "nwpu-data-assets-serve",
-    "name": "西北工业大学数据资产服务平台",
+    "name": "数据资产服务平台",
+    "company": ["西北工业大学", "景德镇陶瓷学院", "北京理工大学"],
     "logo": ["/icon/nwpu.png", "/icon/nwpu.png"],
     "keywords": ["数据资产", "监控大屏"],
     "techStack": ["webpack", "vue", "element", "echarts", "axios", "sass"],
@@ -49,7 +52,8 @@
   {
     "show": false,
     "id": "nwpu-data-assets-admin",
-    "name": "西北工业大学数据资产管理平台",
+    "name": "数据资产管理平台",
+    "company": ["西北工业大学"],
     "logo": ["/icon/nwpu.png", "/icon/nwpu.png"],
     "keywords": ["数据资产", "后台管理", "高校"],
     "techStack": ["webpack", "vue", "element", "echarts", "axios", "sass"],
@@ -61,6 +65,7 @@
     "show": true,
     "id": "nwpu-portal",
     "name": "西北工业大学翱翔门户",
+    "company": ["西北工业大学"],
     "logo": ["/icon/nwpu.png", "/icon/nwpu.png"],
     "keywords": ["校园门户", "Web", "App"],
     "techStack": ["webpack", "vue", "uni-app", "electron", "element", "axios", "sass"],
