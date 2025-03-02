@@ -151,7 +151,7 @@ export default function PageResume() {
             <ul className='list-inside list-disc grid gap-1'>
               <li>搭建基于 Vue 的前端开发架构，成功上线了公司第一款基于 Vue 的产品。</li>
               <li>基于 Echarts 实现数据监控大屏，并基于 transform 实现屏幕自适应。</li>
-              <li>负责“校园门户”从 JQuery 升级到 Vue 项目的前端重构工作。</li>
+              <li>负责“校园门户”项目从 JQuery 升级到 Vue 的重构工作。</li>
               <li>负责公司私有组件库的开发和维护工作。 </li>
               <li>组建前端团队，负责前端工作安排、技术培训、业务培训以及文档编写等工作。</li>
               <li className='font-bold'>荣获公司 2019 年年度优秀员工。</li>
