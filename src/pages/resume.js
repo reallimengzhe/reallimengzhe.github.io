@@ -55,7 +55,7 @@ export default function PageResume() {
             <p className='text-center'>&lt;前端开发工程师 /&gt;</p>
           </section>
 
-          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>快速了解</h3>
+          <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>基本信息</h3>
 
           <table className='mb-2'>
             <tbody>
@@ -86,9 +86,9 @@ export default function PageResume() {
             <h4 className='font-bold dark:border-slate-900'>前端基础</h4>
 
             <ul className='list-inside list-disc'>
-              <li>熟练使用 Canvas、WebSocket 等 HTML5 新特性。</li>
-              <li>熟练使用 Flex、Grid 等 CSS3 新特性，遵循 BEM 命名规范。</li>
-              <li>熟练使用 async/await、Set、Map 等 JavaScript ES6+ 新特性，能够在项目中广泛应用。</li>
+              <li>熟悉并熟练使用 HTML5 新特性，如 Canvas、WebSocket 等。</li>
+              <li>熟悉并熟练使用 CSS3 新特性，如 Flex、Grid 等，CSS 命名遵循 BEM 规范，力求结构清晰。</li>
+              <li>熟悉并熟练使用 JavaScript ES6+ 新特性，如 async/await、Set、Map 等。</li>
             </ul>
           </section>
           <section className='grid gap-2'>
@@ -99,16 +99,16 @@ export default function PageResume() {
               <li>熟练使用 Webpack 和 Vite 等构建工具，有前端性能优化的具体实践。</li>
               <li>熟悉 Node.js、Electron.js、Uni-App 和微信小程序，可以独立开发服务端应用、桌面端应用、APP 和小程序。</li>
               <li>熟练使用 Git、Jira 等项目协同工具，保证团队协作效率。</li>
-              <li>熟练使用 Photoshop、Illustrator、Figma 等设计软件。 </li>
+              <li>熟练使用 Photoshop、Illustrator、Figma 等 UI 相关软件。 </li>
             </ul>
           </section>
 
           <h3 className='text-xl font-bold border-b-2 pb-2 border-slate-100 dark:border-slate-900'>时间线</h3>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-900'>上海喜树信息科技有限公司 · 研发部 · 前端开发工程师</h4>
+            <h4 className='font-bold dark:border-slate-900'>上海喜树信息科技有限公司 · 研发部 · 前端组组长</h4>
 
-            <i className='text-slate-400'>2023 年 8 月 - 2024 年 1 月</i>
+            <i className='text-slate-400'>2023 年 8 月 - 2025 年 1 月</i>
 
             <ul className='list-inside list-disc grid gap-1'>
               <li>负责公司所有产品的前端开发工作。</li>
@@ -117,7 +117,7 @@ export default function PageResume() {
             </ul>
           </section>
 
-          <section className='grid gap-2'>
+          {/* <section className='grid gap-2'>
             <h4 className='font-bold dark:border-slate-900'>伦敦城市大学 · 全日制硕士研究生 </h4>
 
             <i className='text-slate-400'>2022 年 3 月 - 2023 年 6 月</i>
@@ -126,7 +126,7 @@ export default function PageResume() {
               <li>主修工商管理，获得硕士学位。</li>
               <li>平均成绩 Good，创新管理等课程获得 Very Good。</li>
             </ul>
-          </section>
+          </section> */}
 
           <section className='grid gap-2'>
             <h4 className='font-bold dark:border-slate-900'>上海商汤智能科技有限公司 · 智慧城市与商业事业群 · 前端开发工程师</h4>
@@ -144,15 +144,15 @@ export default function PageResume() {
           </section>
 
           <section className='grid gap-2'>
-            <h4 className='font-bold dark:border-slate-900'>上海树维信息科技有限公司 · 平台产品研发部 · 前端开发工程师</h4>
+            <h4 className='font-bold dark:border-slate-900'>上海树维信息科技有限公司 · 平台产品研发部 · 前端组组长</h4>
 
             <i className='text-slate-400'>2019 年 5 月 - 2020 年 10 月</i>
 
             <ul className='list-inside list-disc grid gap-1'>
               <li>搭建基于 Vue 的前端开发架构，成功上线了公司第一款基于 Vue 的产品。</li>
               <li>基于 Echarts 实现数据监控大屏，并基于 transform 实现屏幕自适应。</li>
-              <li>负责 校园门户 项目的前端重构，从 JQuery 升级到 Vue。</li>
-              <li>负责公司组件库的开发和维护工作。 </li>
+              <li>负责“校园门户”从 JQuery 升级到 Vue 项目的前端重构工作。</li>
+              <li>负责公司私有组件库的开发和维护工作。 </li>
               <li>组建前端团队，负责前端工作安排、技术培训、业务培训以及文档编写等工作。</li>
               <li className='font-bold'>荣获公司 2019 年年度优秀员工。</li>
             </ul>
@@ -215,7 +215,7 @@ export default function PageResume() {
 
       <div className='block lg:hidden text-center mb-20'>
         <p className='text-5xl mb-10'>💻</p>
-        <p>简历以 A4 纸尺寸进行排版，请在宽度 1024px 以上的设备、浏览器上进行查看，以便获得最佳显示效果。</p>
+        <p>简历以 A4 尺寸进行排版，请在宽度 1024px 以上的环境下进行查看，以便获得最佳显示效果。</p>
       </div>
     </main>
   )
