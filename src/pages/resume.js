@@ -164,9 +164,8 @@ export default function PageResume() {
             <i className='text-slate-400'>2013 年 9 月 - 2017 年 7 月</i>
 
             <ul className='list-inside list-disc grid gap-1'>
-              <li>主修视觉传达，获得艺术学学士学位。</li>
-              <li>版面编排设计、网页设计等课程获得高分。</li>
-              <li>获得计算机二级证书。</li>
+              <li>主修视觉传达设计专业，<b>版面编排设计</b>、<b>网页设计与制作</b>等课程均获得 90+ 成绩。</li>
+              <li>获得学士学位，获得计算机二级证书。</li>
             </ul>
           </section>
 
