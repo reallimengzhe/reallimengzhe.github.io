@@ -86,9 +86,9 @@ export default function PageResume() {
             <h4 className='font-bold dark:border-slate-900'>前端基础</h4>
 
             <ul className='list-inside list-disc'>
-              <li>熟悉并熟练使用 HTML5 新特性，如 Canvas、WebSocket 等。</li>
-              <li>熟悉并熟练使用 CSS3 新特性，如 Flex、Grid 等，CSS 命名遵循 BEM 规范，力求结构清晰。</li>
-              <li>熟悉并熟练使用 JavaScript ES6+ 新特性，如 async/await、Set、Map 等。</li>
+              <li>熟练使用 HTML5 新特性，如 Canvas、WebSocket 等。</li>
+              <li>熟练使用 CSS3 新特性，如 Flex、Grid 等，遵循 BEM 命名规范，力求结构清晰。</li>
+              <li>熟练使用 JavaScript ES6+ 新特性，如 Promise、async/await 等。</li>
             </ul>
           </section>
           <section className='grid gap-2'>
@@ -117,7 +117,7 @@ export default function PageResume() {
             </ul>
           </section>
 
-          {/* <section className='grid gap-2'>
+          <section className='grid gap-2'>
             <h4 className='font-bold dark:border-slate-900'>伦敦城市大学 · 全日制硕士研究生 </h4>
 
             <i className='text-slate-400'>2022 年 3 月 - 2023 年 6 月</i>
@@ -126,7 +126,7 @@ export default function PageResume() {
               <li>主修工商管理，获得硕士学位。</li>
               <li>平均成绩 Good，创新管理等课程获得 Very Good。</li>
             </ul>
-          </section> */}
+          </section>
 
           <section className='grid gap-2'>
             <h4 className='font-bold dark:border-slate-900'>上海商汤智能科技有限公司 · 智慧城市与商业事业群 · 前端开发工程师</h4>
@@ -134,7 +134,7 @@ export default function PageResume() {
             <i className='text-slate-400'>2020 年 10 月 - 2022 年 2 月</i>
 
             <ul className='list-inside list-disc grid gap-1'>
-              <li>负责 AI 定义相机 整个产品线的前端开发。</li>
+              <li>负责<b>AI 定义相机</b>整个产品线多个项目的前端开发。</li>
               <li>实现基于 OCX 的视频实时预览功能。</li>
               <li>实现基于 Websocket 的即时推送功能。</li>
               <li>对旧项目进行性能优化，减少约 500MB 的前端内存空间占用。</li>
