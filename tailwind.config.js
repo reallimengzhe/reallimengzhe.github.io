@@ -1,18 +1,14 @@
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors'
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './src/pages/**/*.{js,jsx}',
-    './src/components/**/*.{js,jsx}',
-    './src/app/**/*.{js,jsx}',
-  ],
+const config = {
+  darkMode: 'class',
+  content: ['./src/pages/**/*.{js,jsx}', './src/components/**/*.{js,jsx}', './src/app/**/*.{js,jsx}'],
   theme: {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       aspectRatio: {
         '3/2': '3 / 2',
@@ -20,6 +16,7 @@ module.exports = {
       },
     },
     colors: {
+      border: 'hsl(var(--border))',
       transparent: 'transparent',
       current: 'currentColor',
       klein: {
@@ -54,6 +51,7 @@ module.exports = {
     },
   },
   plugins: [],
-  darkMode: 'class',
   important: true,
 }
+
+export default config

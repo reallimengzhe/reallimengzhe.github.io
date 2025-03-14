@@ -7,12 +7,21 @@
   --cyan-color-600: 74, 255, 255; /* main */
 
   --bg-color: 255, 255, 255;
+
+  /* --border-color: #f1f5f9; */
+  --border-color: #e2e8f0;
 }
 
 .dark {
   color-scheme: dark;
 
   --bg-color: 2, 6, 23;
+
+  --border-color: #1e293b;
+}
+
+* {
+  border-color: var(--border-color);
 }
 
 .nav_bar-logo::before {
@@ -77,5 +86,33 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+.transparnet-gap {
+  background-color: rgb(var(--bg-color));
+  background-image: linear-gradient(135deg, transparent 7px, var(--border-color) 7px, var(--border-color) 8px, transparent 8px, transparent);
+  background-size: 10px 10px;
+}
+
+.bg {
+  background-color: rgb(var(--bg-color));
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40%);
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateY(-40%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
