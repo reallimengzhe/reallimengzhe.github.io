@@ -14,6 +14,33 @@ const config = {
         '3/2': '3 / 2',
         '16/10': '16 / 10',
       },
+      keyframes: {
+        'fade-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-12px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        'slide-down': {
+          '0%': {
+            transform: 'translateY(-100%)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-out',
+        'slide-down': 'slide-down 0.5s ease-out',
+      },
+      height: {
+        128: '32rem',
+      },
     },
     colors: {
       border: 'hsl(var(--border))',
@@ -48,6 +75,9 @@ const config = {
       slate: colors.slate,
       black: colors.black,
       white: colors.white,
+      amber: colors.amber,
+      red: colors.red,
+      emerald: colors.emerald,
     },
   },
   plugins: [],

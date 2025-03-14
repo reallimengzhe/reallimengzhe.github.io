@@ -3,6 +3,7 @@ import IconMore from '@/components/icon-more'
 
 import DataVisualization from '@/components/data-visualization'
 import ProjectCarousel from '@/components/project-carousel'
+import LiveFeed from '@/components/live-feed'
 
 const projects = require('@/data/project.json')
 const posts = require('@/data/post.json')
@@ -175,6 +176,7 @@ export default function Home() {
       </div>
 
       <DataVisualization />
+      <LiveFeed />
 
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
