@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className=''>
+    <footer className='border-t'>
       <div className='h-12 transparent-bg'></div>
       <div className='px-6 text-sm text-slate-400 flex flex-col md:flex-row items-center gap-4 border-t py-10'>
         <img src='/logo.svg' className='w-7 h-7' />

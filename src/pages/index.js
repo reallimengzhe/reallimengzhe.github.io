@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from 'react'
 
 import { setAnimation } from '@/utils'
 
-import IconArrowDown from '@/components/icon-arrow-down'
 import IconArrowRight from '@/components/icon-arrow-right'
 import IconMore from '@/components/icon-more'
 
@@ -514,13 +513,13 @@ export default function Home() {
                 <p className='text-sm text-slate-400 pt-0.5'>较去年增长 20.1%</p>
                 <div ref={chartRefs.line} className='h-48' />
               </div>
-              <div key='2' className='h-80 bg rounded-xl border p-6 col-span-2'>
+              <div key='2' className='h-80 bg rounded-xl border p-6 lg:col-span-2'>
                 <h3>月资产概览</h3>
                 <p className='text-2xl font-bold pt-1'>Total 882.18 TB</p>
                 <p className='text-sm text-slate-400 pt-0.5'>本年度数据资产总量合计 882.18 TB，平均每月 73.515 TB。</p>
                 <div ref={chartRefs.bar} className='h-48' />
               </div>
-              <div key='3' className='h-96 bg rounded-xl border p-6 col-span-2'>
+              <div key='3' className='h-96 bg rounded-xl border p-6 lg:col-span-2'>
                 <h3 className='font-bold'>实时网络攻击来源 TOP 5</h3>
                 <p className='text-sm text-slate-400 pt-0.5'>TOP 5 Regions of Real-time Network Attacks.</p>
                 <div ref={chartRefs.dynamicBar} className='h-64 mt-6' />
@@ -585,7 +584,7 @@ export default function Home() {
         <div className='w-0 md:w-16 bg'></div>
       </div>
 
-      <div className='border-b flex' id='main-content'>
+      <div className='flex' id='main-content'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
           <div className='bg border-x p-2 flex gap-4'>
