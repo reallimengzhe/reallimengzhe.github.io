@@ -4,7 +4,7 @@
 const nextConfig = {
   reactStrictMode: false,
   output: 'export',
-  distDir: 'docs',
+  // distDir: 'docs',
 }
 
 export default nextConfig
