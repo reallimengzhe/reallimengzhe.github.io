@@ -3,20 +3,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  // output: 'export',
-  // images: {
-  //   unoptimized: true,
-  // },
-  // experimental: {
-  //   esmExternals: 'loose',
-  // },
-  // webpack: config => {
-  //   config.externals.push({
-  //     'react-native': true,
-  //     canvas: true,
-  //   })
-  //   return config
-  // },
+  output: 'export',
+  distDir: 'docs',
 }
 
 export default nextConfig
