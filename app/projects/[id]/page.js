@@ -1,29 +1,16 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
 import IconArrowBack from '@/components/icon-arrow-back'
 import IconMore from '@/components/icon-more'
 
 import projects from '@/data/project.json'
 
-export async function getStaticPaths() {
-  return {
-    // paths: [{ params: { name: 'sse-api-sec' } }],
-    paths: projects.map(project => {
-      return { params: { id: project.id } }
-    }),
-    fallback: false, // false or "blocking"
-  }
+export async function generateStaticParams() {
+  return projects.map(project => ({
+    id: project.id,
+  }))
 }
 
-export async function getStaticProps() {
-  // Pass data to the page via props
-  return { props: { projects } }
-}
-
-export default function Page({ projects }) {
-  const router = useRouter()
-  const { id } = router.query
+export default function Page({ params }) {
+  const { id } = params
 
   const project = projects.find(item => item.id === id)
 
@@ -37,13 +24,13 @@ export default function Page({ projects }) {
 
         <main className='px-6 py-10 relative z-10'>
           <div className='mx-auto max-w-7xl pb-10 mb-10 border-b border-slate-100 dark:border-slate-900'>
-            <Link
+            <a
               href='javascript:history.back(-1)'
               className='flex items-center gap-2 text-slate-400 hover:text-slate-600 transition-colors mb-10 w-fit'
             >
               <IconArrowBack />
               <span>返回</span>
-            </Link>
+            </a>
 
             <div className='flex gap-2 flex-wrap mb-4 text-klein-600 dark:text-cyan-600'>
               {project.keywords.map(keyword => {
