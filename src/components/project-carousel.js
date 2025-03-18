@@ -12,56 +12,56 @@ export default function ProjectCarousel() {
                 style={{
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'top left',
-                  transform: 'rotateX(45deg) rotateZ(-45deg) translateX(-50%) scale(1.3)',
+                  transform: 'rotateX(45deg) rotateZ(-45deg) translateX(-38%) scale(1.1)',
                 }}
               >
                 <div className='border-r space-y-12' style={{ animation: 'scroll 60s linear infinite alternate' }}>
-                  <img src='/project/1/1.jpg' className='border-y' />
-                  <img src='/project/1/2.jpg' className='border-y' />
-                  <img src='/project/1/3.jpg' className='border-y' />
-                  <img src='/project/1/4.jpg' className='border-y' />
-                  <img src='/project/1/5.jpg' className='border-y' />
-                  <img src='/project/1/6.jpg' className='border-y' />
-                  <img src='/project/2/1.png' className='border-y' />
-                  <img src='/project/2/2.png' className='border-y' />
-                  <img src='/project/2/3.png' className='border-y' />
-                  <img src='/project/2/4.png' className='border-y' />
+                  <img src='/project/thumbnails/1-1.png' className='border-y' />
+                  <img src='/project/thumbnails/1-2.png' className='border-y' />
+                  <img src='/project/thumbnails/1-3.png' className='border-y' />
+                  <img src='/project/thumbnails/1-4.png' className='border-y' />
+                  <img src='/project/thumbnails/1-5.png' className='border-y' />
+                  <img src='/project/thumbnails/1-6.png' className='border-y' />
+                  <img src='/project/thumbnails/2-1.png' className='border-y' />
+                  <img src='/project/thumbnails/2-2.png' className='border-y' />
+                  <img src='/project/thumbnails/2-3.png' className='border-y' />
+                  <img src='/project/thumbnails/2-4.png' className='border-y' />
                 </div>
-                <div className='border-x space-y-6' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
-                  <img src='/project/2/5.png' className='border-y' />
-                  <img src='/project/3/1.png' className='border-y' />
-                  <img src='/project/3/2.png' className='border-y' />
-                  <img src='/project/3/3.png' className='border-y' />
-                  <img src='/project/3/4.png' className='border-y' />
-                  <img src='/project/3/5.png' className='border-y' />
-                  <img src='/project/4/1.png' className='border-y' />
-                  <img src='/project/4/2.png' className='border-y' />
-                  <img src='/project/4/3.png' className='border-y' />
-                  <img src='/project/5/1.png' className='border-y' />
+                <div className='border-x space-y-12' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
+                  <img src='/project/thumbnails/2-5.png' className='border-y' />
+                  <img src='/project/thumbnails/3-1.png' className='border-y' />
+                  <img src='/project/thumbnails/3-2.png' className='border-y' />
+                  <img src='/project/thumbnails/3-3.png' className='border-y' />
+                  <img src='/project/thumbnails/3-4.png' className='border-y' />
+                  <img src='/project/thumbnails/3-5.png' className='border-y' />
+                  <img src='/project/thumbnails/4-1.png' className='border-y' />
+                  <img src='/project/thumbnails/4-2.png' className='border-y' />
+                  <img src='/project/thumbnails/4-3.png' className='border-y' />
+                  <img src='/project/thumbnails/5-1.png' className='border-y' />
                 </div>
-                <div className='border-x space-y-6' style={{ animation: 'scroll 60s linear infinite alternate' }}>
-                  <img src='/project/5/2.png' className='border-y' />
-                  <img src='/project/5/3.png' className='border-y' />
-                  <img src='/project/6/1.png' className='border-y' />
-                  <img src='/project/6/2.png' className='border-y' />
-                  <img src='/project/6/3.png' className='border-y' />
-                  <img src='/project/6/4.png' className='border-y' />
-                  <img src='/project/6/5.png' className='border-y' />
-                  <img src='/project/6/6.png' className='border-y' />
-                  <img src='/project/1/1.jpg' className='border-y' />
-                  <img src='/project/1/2.jpg' className='border-y' />
+                <div className='border-x space-y-12' style={{ animation: 'scroll 60s linear infinite alternate' }}>
+                  <img src='/project/thumbnails/5-2.png' className='border-y' />
+                  <img src='/project/thumbnails/5-3.png' className='border-y' />
+                  <img src='/project/thumbnails/6-1.png' className='border-y' />
+                  <img src='/project/thumbnails/6-2.png' className='border-y' />
+                  <img src='/project/thumbnails/6-3.png' className='border-y' />
+                  <img src='/project/thumbnails/6-4.png' className='border-y' />
+                  <img src='/project/thumbnails/6-5.png' className='border-y' />
+                  <img src='/project/thumbnails/6-6.png' className='border-y' />
+                  <img src='/project/thumbnails/1-1.png' className='border-y' />
+                  <img src='/project/thumbnails/1-2.png' className='border-y' />
                 </div>
-                <div className='border-x space-y-6' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
-                  <img src='/project/1/3.jpg' className='border-y' />
-                  <img src='/project/8/0.png' className='border-y' />
-                  <img src='/project/8/1.png' className='border-y' />
-                  <img src='/project/8/2.png' className='border-y' />
-                  <img src='/project/8/3.png' className='border-y' />
-                  <img src='/project/9/1.png' className='border-y' />
-                  <img src='/project/9/2.png' className='border-y' />
-                  <img src='/project/10/1.png' className='border-y' />
-                  <img src='/project/10/2.png' className='border-y' />
-                  <img src='/project/10/3.png' className='border-y' />
+                <div className='border-x space-y-12' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
+                  <img src='/project/thumbnails/1-3.png' className='border-y' />
+                  <img src='/project/thumbnails/8-0.png' className='border-y' />
+                  <img src='/project/thumbnails/8-1.png' className='border-y' />
+                  <img src='/project/thumbnails/8-2.png' className='border-y' />
+                  <img src='/project/thumbnails/8-3.png' className='border-y' />
+                  <img src='/project/thumbnails/9-1.png' className='border-y' />
+                  <img src='/project/thumbnails/9-2.png' className='border-y' />
+                  <img src='/project/thumbnails/10-1.png' className='border-y' />
+                  <img src='/project/thumbnails/10-2.png' className='border-y' />
+                  <img src='/project/thumbnails/10-3.png' className='border-y' />
                 </div>
               </div>
             </div>
