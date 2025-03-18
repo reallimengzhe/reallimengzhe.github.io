@@ -86,7 +86,7 @@ export default function LiveFeed() {
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
           <div className='p-2 bg-slate-100 dark:bg-slate-900 border-x'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
-              <div className='lg:h-128 aspect-video lg:aspect-auto bg rounded-2xl overflow-hidden lg:col-span-2 bg-black'>
+              <div className='lg:h-128 aspect-video lg:aspect-auto bg rounded-2xl overflow-hidden lg:col-span-2 bg-black border'>
                 <NetworkTopology messageType={latestType} />
               </div>
               <div className='h-128 overflow-hidden space-y-2'>
