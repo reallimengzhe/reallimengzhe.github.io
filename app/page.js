@@ -177,6 +177,7 @@ export default function Page() {
       </div>
 
       <DataVisualization />
+
       <LiveFeed />
 
       <div className='border-b flex'>

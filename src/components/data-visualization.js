@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import createGlobe from 'cobe'
+import * as echarts from 'echarts'
 
 const fontMono = "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
 
@@ -13,12 +15,87 @@ export default function DataVisualization() {
   }
 
   useEffect(() => {
-    // 动态导入 echarts 和 echarts-gl
-    Promise.all([import('echarts'), import('echarts-gl')]).then(([echarts]) => {
-      // 初始化图表
-      const charts = {}
-      Object.entries(chartRefs).forEach(([key, ref]) => {
-        if (!ref.current) return
+    // 初始化图表
+    const charts = {}
+    Object.entries(chartRefs).forEach(([key, ref]) => {
+      if (!ref.current) return
+
+      if (key === 'globe') {
+        const canvas = document.createElement('canvas')
+
+        const devicePixelRatio = window.devicePixelRatio || 2
+
+        canvas.style = 'width: 100%; height: 100%;'
+
+        canvas.width = ref.current.clientWidth * devicePixelRatio
+        canvas.height = ref.current.clientHeight * devicePixelRatio
+        ref.current.appendChild(canvas)
+
+        let phi = 0
+
+        // 检查当前主题
+        let isDarkMode = document.documentElement.classList.contains('dark')
+
+        // 创建地球组件
+        const createGlobeInstance = () =>
+          createGlobe(canvas, {
+            devicePixelRatio: window.devicePixelRatio || devicePixelRatio,
+            width: canvas.width,
+            height: canvas.height,
+            phi: 0,
+            theta: 0,
+            dark: isDarkMode ? 1 : 0,
+            diffuse: isDarkMode ? 1.2 : 2.8,
+            scale: 1,
+            mapSamples: 16000,
+            mapBrightness: isDarkMode ? 6 : 4,
+            baseColor: isDarkMode ? [0.3, 0.3, 0.3] : [1, 1, 1],
+            markerColor: [0.023529411764705882, 0.7137254901960784, 0.8313725490196079],
+            glowColor: isDarkMode ? [0.1, 0.1, 0.1] : [1, 1, 1],
+            offset: [0, 0],
+            markers: [
+              { location: [39.9042, 116.4074], size: 0.08 }, // 北京
+              { location: [35.6762, 139.6503], size: 0.08 }, // 东京
+              { location: [40.7128, -74.006], size: 0.08 }, // 纽约
+              { location: [51.5074, -0.1278], size: 0.08 }, // 伦敦
+              { location: [48.8566, 2.3522], size: 0.08 }, // 巴黎
+              { location: [55.7558, 37.6173], size: 0.08 }, // 莫斯科
+              { location: [22.3193, 114.1694], size: 0.08 }, // 香港
+              { location: [1.3521, 103.8198], size: 0.08 }, // 新加坡
+              { location: [-33.8688, 151.2093], size: 0.08 }, // 悉尼
+              { location: [-23.5505, -46.6333], size: 0.08 }, // 圣保罗
+              { location: [28.6139, 77.209], size: 0.08 }, // 新德里
+              { location: [19.076, 72.8777], size: 0.08 }, // 孟买
+            ],
+            opacity: 0.8,
+            onRender: state => {
+              state.phi = phi
+              phi += 0.01
+            },
+          })
+
+        let globe = createGlobeInstance()
+
+        // 监听主题变化
+        const observer = new MutationObserver(mutations => {
+          mutations.forEach(mutation => {
+            if (mutation.attributeName === 'class') {
+              isDarkMode = document.documentElement.classList.contains('dark')
+              globe.destroy()
+              globe = createGlobeInstance()
+            }
+          })
+        })
+
+        observer.observe(document.documentElement, { attributes: true })
+
+        // 清理函数
+        return () => {
+          observer.disconnect()
+          globe.destroy()
+          canvas.remove()
+        }
+      } else {
         charts[key] = echarts.init(ref.current)
 
         switch (key) {
@@ -67,20 +144,10 @@ export default function DataVisualization() {
 
           case 'dynamicBar':
             const data = [950, 920, 880, 850, 900, 900, 900]
-            const colors = {
-              Japan: '#ef4444',
-              France: '#265392',
-              Russia: '#3355ad',
-              UK: '#c5444f',
-              USA: '#486b9a',
-              India: '#eba860',
-              Korea: '#475685',
-            }
 
             charts[key].setOption({
               grid: { top: 0, right: 72, bottom: 0, left: 72 },
               xAxis: {
-                // max: 100,
                 show: false,
                 label: { show: false },
                 splitLine: { show: false },
@@ -94,7 +161,7 @@ export default function DataVisualization() {
                 animationDuration: 300,
                 animationDurationUpdate: 300,
                 data: ['Japan', 'France', 'Russia', 'UK', 'USA', 'India', 'Korea'],
-                max: 4, // only the largest 5 bars will be displayed
+                max: 4,
               },
               series: {
                 realtimeSort: true,
@@ -109,7 +176,6 @@ export default function DataVisualization() {
                 },
                 itemStyle: {
                   color: '#06b6d4',
-                  // color: ({ name }) => colors[name],
                   borderRadius: [0, 8, 8, 0],
                 },
               },
@@ -137,113 +203,32 @@ export default function DataVisualization() {
               run()
             }, 0)
 
-            // 定时更新数据
             let intervalId = setInterval(() => {
               run()
             }, 3000)
 
-            // 清理定时器
             return () => {
               clearTimeout(timeoutId)
               clearInterval(intervalId)
             }
-
-          case 'globe':
-            charts[key].setOption({
-              backgroundColor: 'transparent',
-              globe: {
-                environment: '/starfield.jpg',
-                baseTexture: '/world.topo.bathy.200401.jpg',
-                heightTexture: '/bathymetry_bw_composite_4k.jpg',
-                displacementScale: 0.04,
-                shading: 'realistic',
-                realisticMaterial: {
-                  roughness: 0.9,
-                  metalness: 0.8,
-                  glossiness: 64,
-                },
-                postEffect: {
-                  enable: true,
-                  bloom: {
-                    enable: true,
-                    bloomIntensity: 0.3,
-                  },
-                },
-                light: {
-                  ambient: {
-                    intensity: 0.1,
-                  },
-                  main: {
-                    intensity: 5,
-                    shadow: true,
-                  },
-                },
-                viewControl: {
-                  autoRotate: true,
-                  autoRotateSpeed: 10,
-                  distance: 250,
-                },
-                layers: [
-                  {
-                    type: 'blend',
-                    blendTo: 'emission',
-                    texture: '/world.topo.bathy.200401.jpg',
-                    intensity: 0.4,
-                  },
-                ],
-              },
-              series: [
-                {
-                  type: 'lines3D',
-                  coordinateSystem: 'globe',
-                  effect: {
-                    show: true,
-                    period: 2,
-                    trailWidth: 2,
-                    trailLength: 0.2,
-                    trailOpacity: 1,
-                    trailColor: '#0ea5e9',
-                  },
-                  blendMode: 'lighter',
-                  lineStyle: {
-                    width: 1,
-                    color: '#0ea5e9',
-                    opacity: 0.1,
-                  },
-                  data: Array(20)
-                    .fill()
-                    .map(() => {
-                      const lat1 = Math.random() * 180 - 90
-                      const lng1 = Math.random() * 360 - 180
-                      const lat2 = Math.random() * 180 - 90
-                      const lng2 = Math.random() * 360 - 180
-                      return [
-                        [lng1, lat1],
-                        [lng2, lat2],
-                      ]
-                    }),
-                },
-              ],
-            })
-            break
         }
-      })
-
-      // 添加窗口大小变化监听
-      const handleResize = () => {
-        Object.values(charts).forEach(chart => {
-          chart?.resize()
-        })
-      }
-
-      window.addEventListener('resize', handleResize)
-
-      // 清理函数
-      return () => {
-        window.removeEventListener('resize', handleResize)
-        Object.values(charts).forEach(chart => chart?.dispose())
       }
     })
+
+    // 添加窗口大小变化监听
+    const handleResize = () => {
+      Object.values(charts).forEach(chart => {
+        chart?.resize()
+      })
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    // 清理函数
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      Object.values(charts).forEach(chart => chart?.dispose())
+    }
   }, [])
 
   return (
@@ -282,11 +267,11 @@ export default function DataVisualization() {
                 <div ref={chartRefs.bar} className='h-48' />
               </div>
               <div key='3' className='h-96 bg rounded-xl border p-6 lg:col-span-2'>
-                <h3 className='font-bold'>实时网络攻击来源 TOP 5</h3>
+                <h3 className='font-bold'>全球实时网络攻击来源 TOP 5</h3>
                 <p className='text-sm text-slate-400 pt-0.5'>TOP 5 Regions of Real-time Network Attacks.</p>
                 <div ref={chartRefs.dynamicBar} className='h-64 mt-6' />
               </div>
-              <div key='5' ref={chartRefs.globe} className='h-96 bg rounded-xl border overflow-hidden bg-black' />
+              <div key='5' ref={chartRefs.globe} className='h-96 bg rounded-xl border overflow-hidden' />
             </div>
           </div>
         </div>
