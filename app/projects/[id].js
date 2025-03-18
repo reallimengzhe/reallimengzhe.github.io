@@ -4,9 +4,9 @@ import { useRouter } from 'next/router'
 import IconArrowBack from '@/components/icon-arrow-back'
 import IconMore from '@/components/icon-more'
 
-export async function getStaticPaths() {
-  const projects = require('@/data/project.json')
+import projects from '@/data/project.json'
 
+export async function getStaticPaths() {
   return {
     // paths: [{ params: { name: 'sse-api-sec' } }],
     paths: projects.map(project => {
@@ -17,9 +17,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  // Fetch data from external API
-  const projects = require('@/data/project.json')
-
   // Pass data to the page via props
   return { props: { projects } }
 }
@@ -33,7 +30,10 @@ export default function Page({ projects }) {
   return (
     project && (
       <>
-        <img src='/background.png' className='fixed top-0 max-w-4xl -right-56 md:-right-32 md:max-w-5xl xl:right-0 xl:max-w-7xl opacity-80 dark:opacity-30' />
+        <img
+          src='/background.png'
+          className='fixed top-0 max-w-4xl -right-56 md:-right-32 md:max-w-5xl xl:right-0 xl:max-w-7xl opacity-80 dark:opacity-30'
+        />
 
         <main className='px-6 py-10 relative z-10'>
           <div className='mx-auto max-w-7xl pb-10 mb-10 border-b border-slate-100 dark:border-slate-900'>

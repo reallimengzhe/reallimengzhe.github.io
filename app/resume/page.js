@@ -1,22 +1,20 @@
-import IconDownload from '@/components/icon-download'
+'use client'
 
+import IconDownload from '@/components/icon-download'
+import projects from '@/data/project.json'
 import printJS from '@/utils/print.min.js'
 
-const projects = require('@/data/project.json')
+function handleExport() {
+  printJS({
+    printable: 'the_resume-main',
+    type: 'html',
+    scanStyles: true,
+    targetStyles: ['*'],
+    documentTitle: '前端开发工程师_李孟哲_15538077068',
+  })
+}
 
 export default function PageResume() {
-  function handleExport() {
-    printJS({
-      printable: 'the_resume-main',
-      type: 'html',
-      scanStyles: true,
-      // maxWidth: '',
-      targetStyles: ['*'],
-      documentTitle: '前端开发工程师_李孟哲_15538077068',
-      // ignoreElements: ['report_content-button'],
-    })
-  }
-
   return (
     <main className='relative px-6'>
       <div className='mx-auto max-w-7xl py-20 border-b border-slate-100 dark:border-slate-900 mb-20'>
@@ -134,7 +132,9 @@ export default function PageResume() {
             <i className='text-slate-400'>2020 年 10 月 - 2022 年 2 月</i>
 
             <ul className='list-inside list-disc grid gap-1'>
-              <li>负责<b>AI 定义相机</b>整个产品线多个项目的前端开发。</li>
+              <li>
+                负责<b>AI 定义相机</b>整个产品线多个项目的前端开发。
+              </li>
               <li>实现基于 OCX 的视频实时预览功能。</li>
               <li>实现基于 Websocket 的即时推送功能。</li>
               <li>对旧项目进行性能优化，减少约 500MB 的前端内存空间占用。</li>
@@ -164,7 +164,9 @@ export default function PageResume() {
             <i className='text-slate-400'>2013 年 9 月 - 2017 年 7 月</i>
 
             <ul className='list-inside list-disc grid gap-1'>
-              <li>主修视觉传达设计专业，<b>版面编排设计</b>、<b>网页设计与制作</b>等课程均获得 90+ 成绩。</li>
+              <li>
+                主修视觉传达设计专业，<b>版面编排设计</b>、<b>网页设计与制作</b>等课程均获得 90+ 成绩。
+              </li>
               <li>获得学士学位，获得计算机二级证书。</li>
             </ul>
           </section>

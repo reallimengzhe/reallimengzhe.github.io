@@ -1,10 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 
 import IconMore from '@/components/icon-more'
 import { setAnimation } from '@/utils'
 
-const projects = require('@/data/project.json')
+import projects from '@/data/project.json'
 
 export default function Projects() {
   useEffect(() => {

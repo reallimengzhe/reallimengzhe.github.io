@@ -1,9 +1,9 @@
 import colors from 'tailwindcss/colors'
 
 /** @type {import('tailwindcss').Config} */
-const config = {
+export default {
   darkMode: 'class',
-  content: ['./src/pages/**/*.{js,jsx}', './src/components/**/*.{js,jsx}', './src/app/**/*.{js,jsx}'],
+  content: ['./src/**/*.{js,jsx}', './src/components/**/*.{js,jsx}', './app/**/*.{js,jsx}'],
   theme: {
     extend: {
       backgroundImage: {
@@ -83,5 +83,3 @@ const config = {
   plugins: [],
   important: true,
 }
-
-export default config

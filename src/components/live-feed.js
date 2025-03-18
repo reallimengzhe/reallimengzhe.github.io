@@ -1,15 +1,21 @@
-import { useState, useEffect } from 'react'
+'use client'
+import { useState, useEffect, useRef, Suspense } from 'react'
 import { InformationCircleIcon, ExclamationTriangleIcon, XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import dynamic from 'next/dynamic'
+
+const NetworkTopology = dynamic(() => import('./network-topology'), {
+  ssr: false,
+})
 
 const messages = [
-  { type: 'info', title: '机器人状态', content: '所有机器人系统运行正常，核心温度保持稳定。' },
-  { type: 'warning', title: '安全警告', content: '检测到未经授权的生物机械接入尝试，已启动防御协议。' },
-  { type: 'error', title: '系统入侵', content: '主控室防火墙遭受攻击，请立即采取应对措施。' },
-  { type: 'success', title: '任务完成', content: '机械臂校准完成，精确度提升至 99.9%。' },
-  { type: 'info', title: '数据同步', content: '人工智能核心数据库更新完成，新增决策模型。' },
-  { type: 'warning', title: '能源预警', content: '机器人能源储备不足 30%，请及时充能。' },
-  { type: 'error', title: '紧急情况', content: '探测到敌对机器人部队，启动紧急防御模式。' },
-  { type: 'success', title: '升级完成', content: '武器系统升级成功，火力输出提升 50%。' },
+  { type: 'error', title: 'DDoS 攻击', content: '检测到针对核心服务器的 DDoS 攻击，已启动清洗防护。' },
+  { type: 'warning', title: 'SQL 注入', content: '发现可疑 SQL 注入尝试，IP: 192.168.1.45，已拦截。' },
+  { type: 'info', title: '系统更新', content: '安全补丁更新完成，已修复最新披露的 0day 漏洞。' },
+  { type: 'success', title: '防火墙', content: '成功阻止来自海外的暴力破解攻击，封禁相关 IP。' },
+  { type: 'error', title: '异常访问', content: '数据库服务器出现异常连接请求，已切断相关会话。' },
+  { type: 'warning', title: '漏洞扫描', content: '检测到外部扫描器探测，已加强网络检测级别。' },
+  { type: 'info', title: '安全审计', content: '完成月度安全审计，发现并修复3个中危漏洞。' },
+  { type: 'success', title: 'WAF 部署', content: 'Web 应用防火墙规则更新完成，防护能力提升。' },
 ]
 
 const colors = {
@@ -28,6 +34,7 @@ const icons = {
 
 export default function LiveFeed() {
   const [feed, setFeed] = useState([])
+  const [latestType, setLatestType] = useState('info') // 添加最新消息类型状态
 
   useEffect(() => {
     // 初始添加一条消息
@@ -47,6 +54,7 @@ export default function LiveFeed() {
           time: new Date().toLocaleTimeString('zh-CN', { hour12: false }),
           ...messages[Math.floor(Math.random() * messages.length)],
         }
+        setLatestType(newMessage.type) // 更新最新消息类型
         const newFeed = [newMessage, ...prev].slice(0, 8) // 保持最多 8 条消息
         return newFeed
       })
@@ -68,7 +76,7 @@ export default function LiveFeed() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>丰富的实时推送经验。消息的价值多少在于你能不能第一时间获取它。</h2>
+          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>我拥有丰富的消息即时推送经验。轻松实现流畅的实时推送，使命必达。</h2>
         </div>
         <div className='w-0 md:w-16 bg'></div>
       </div>
@@ -78,18 +86,8 @@ export default function LiveFeed() {
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
           <div className='p-2 bg-slate-100 dark:bg-slate-900 border-x'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
-              <div className='lg:h-128 aspect-video lg:aspect-auto bg rounded-2xl overflow-hidden lg:col-span-2 bg-black flex items-center'>
-                <video
-                  className='w-full h-full object-cover'
-                  src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4'
-                  // 备选视频源:
-                  // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4
-                  // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
-                  loop
-                  muted
-                  playsInline
-                  autoPlay
-                />
+              <div className='lg:h-128 aspect-video lg:aspect-auto bg rounded-2xl overflow-hidden lg:col-span-2 bg-black'>
+                <NetworkTopology messageType={latestType} />
               </div>
               <div className='h-128 overflow-hidden space-y-2'>
                 {feed.map((msg, index) => {
@@ -97,7 +95,7 @@ export default function LiveFeed() {
                   return (
                     <div
                       key={msg.id}
-                      className={`bg flex gap-3 border rounded-2xl p-3 transition-all duration-500 ${
+                      className={`bg flex gap-3 border rounded-2xl p-3 transition-all duration-500 relative ${
                         index === 0 ? 'animate-fade-in' : 'animate-slide-down'
                       }`}
                     >

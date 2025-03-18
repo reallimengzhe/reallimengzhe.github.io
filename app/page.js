@@ -1,14 +1,15 @@
+'use client'
+
 import IconArrowRight from '@/components/icon-arrow-right'
 import IconMore from '@/components/icon-more'
-
 import DataVisualization from '@/components/data-visualization'
 import ProjectCarousel from '@/components/project-carousel'
 import LiveFeed from '@/components/live-feed'
 
-const projects = require('@/data/project.json')
-const posts = require('@/data/post.json')
+import projects from '@/data/project.json'
+import posts from '@/data/post.json'
 
-export default function Home() {
+export default function Page() {
   return (
     <div className='transparent-bg'>
       <div className='border-b flex'>
@@ -96,7 +97,7 @@ export default function Home() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>我曾负责开发过多个大型项目，这对我来说游刃有余。</h2>
+          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>我曾负责过多个大型项目的前端开发，这对我来说游刃有余。</h2>
         </div>
         <div className='w-0 md:w-16 bg'></div>
       </div>

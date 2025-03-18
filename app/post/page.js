@@ -1,9 +1,11 @@
+'use client'
+
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { setAnimation } from '@/utils'
 import IconArrowRight from '@/components/icon-arrow-right'
 
-const posts = require('@/data/post.json')
+import posts from '@/data/post.json'
 
 export default function Post() {
   useEffect(() => {

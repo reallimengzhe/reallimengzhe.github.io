@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef } from 'react'
 
 const fontMono = "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
@@ -257,7 +259,7 @@ export default function DataVisualization() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>丰富的数据可视化经验。让数据流动起来，尽情感受数据之美。</h2>
+          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>我拥有丰富的数据可视化经验。让数据流动起来，尽情感受数据之美。</h2>
         </div>
         <div className='w-0 md:w-16 bg'></div>
       </div>

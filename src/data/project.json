@@ -7,7 +7,7 @@
     "logo": ["/icon/mcdonalds.png", "/icon/mcdonalds-white.png"],
     "keywords": ["数据安全", "数据资产", "后台管理"],
     "techStack": ["Vite", "Vue", "Element-Plus", "ECharts", "Axios", "Pinia", "Sass"],
-    "intro": "数据安全在信息时代尤为重要，APISEC 安全平台可以为客户系统的 API 进行全方位监测扫描，然后进行统计分析，将暴露的敏感数据、发生的异常行为，以及 API 的漏洞通过表格、图表等形式展示给用户，以便用户及时了解系统安全状况，并及时进行阻断和修复。该平台是数据资产安全防护的重要手段。",
+    "intro": "数据安全在信息时代尤为重要。API 安全平台为客户方 API 提供实时的、全面的监测扫描和统计分析，将敏感的、可疑的、受攻击的 API 通过表格和图表等形式展示给用户，以便用户及时了解系统安全状况，对安全问题及时阻断和修复。该平台是数据资产安全防护的重要手段。",
     "duty": [
       "主导从 Webpack + Vue 2 到 Vite + Vue 3 的前端架构升级工作。",
       "封装图表组件，实现所有页面图表尺寸自适应。",
@@ -24,7 +24,7 @@
     "logo": ["/icon/sph.png", "/icon/sph.png"],
     "keywords": ["仓库管理", "后台管理"],
     "techStack": ["Vite", "Vue", "Element-UI", "Axios", "Pinia", "Sass"],
-    "intro": "上海医药控股在全国各地建有百余个仓库，该系统用于在线管理上海医药在全国各地的仓储业务，集成了仓库、仓间、仓位管理、出入库管理、物流管理等十余个模块，为上海医药提供高效的一站式仓库管理解决方案。",
+    "intro": "上海医药控股在全国各地建有百余个仓库，该系统用于在线管理这些仓库的仓储业务。该系统集成了仓库、仓间、仓位管理、出入库管理、物流管理等十余个模块，为上海医药提供高效的一站式仓库管理解决方案。",
     "duty": [
       "搭建基于 Vue 3 的前端配套开发架构。",
       "设计并实现了基于服务端的权限管理系统，允许管理员对不同仓库下、角色下的用户分配不同的权限。",
@@ -47,7 +47,14 @@
       "负责整个项目的前端开发工作，包括页面绘制、组件封装和数据联调等。",
       "跟进项目部署进度，积极响应关注现场反馈，保证产品稳定运行。"
     ],
-    "img": ["/project/1/6.jpg", "/project/1/2.jpg", "/project/1/3.jpg", "/project/1/4.jpg", "/project/1/5.jpg"]
+    "img": [
+      "https://s21.ax1x.com/2025/03/16/pEaj4it.jpg",
+      "https://s21.ax1x.com/2025/03/16/pEajoz8.jpg",
+      "https://s21.ax1x.com/2025/03/16/pEaj5JP.jpg",
+      "https://s21.ax1x.com/2025/03/16/pEajfII.jpg",
+      "https://s21.ax1x.com/2025/03/16/pEajIRf.jpg",
+      "https://s21.ax1x.com/2025/03/16/pEaj7QS.jpg"
+    ]
   },
   {
     "show": false,
@@ -71,7 +78,13 @@
     "techStack": ["webpack", "Vue", "uni-app", "electron", "Element-UI", "Axios", "Sass"],
     "intro": "翱翔门户是西北工业大学校园综合门户，为全校师生提供教学、科研、办公、学习和生活等各种相关服务，如考试安排、奖学金申请、教室预约、成绩查询等服务。",
     "duty": ["搭建基于 Vue 2 的前端配套开发架构。", "搭建业务组件库。", "基于 Electron 实现桌面端应用，提供校园新闻、日程安排等服务。"],
-    "img": ["/project/2/1.png", "/project/2/2.png", "/project/2/3.png", "/project/2/4.png", "/project/2/5.png"]
+    "img": [
+      "/project/2/1.png",
+      "/project/2/2.png",
+      "/project/2/3.png",
+      "https://s21.ax1x.com/2025/03/16/pEajLZj.png",
+      "https://s21.ax1x.com/2025/03/16/pEajbLQ.png"
+    ]
   },
   {
     "show": true,
