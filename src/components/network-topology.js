@@ -1,186 +1,109 @@
 'use client'
-import { useRef, useMemo, Suspense, useEffect, useState, forwardRef, useImperativeHandle } from 'react'
-import { Vector3, CatmullRomCurve3, MeshBasicMaterial, PCFSoftShadowMap, ShaderMaterial, PlaneGeometry, BackSide } from 'three'
+import { useRef, useMemo, Suspense, useEffect, useState, forwardRef } from 'react'
+import { Vector3, CatmullRomCurve3, PCFSoftShadowMap, BackSide, BoxGeometry } from 'three'
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 
-// 设置深蓝色主题色
 const themeColors = {
-  background: '#000520',
-  primary: '#4466dd',
-  secondary: '#5577ff',
-  accent: '#6699ff',
-  emissive: '#4488ff',
-  lines: '#4466dd',
-  // 渐变背景色
-  gradientTop: '#00ffff',
-  gradientBottom: '#0066ff',
-}
-
-function External({ position }) {
-  return (
-    <group position={position}>
-      <mesh>
-        <cylinderGeometry args={[1.3, 1.3, 0.5, 20]} />
-        <meshBasicMaterial opacity={0.2} transparent />
-      </mesh>
-    </group>
-  )
+  server: {
+    primary: '#0033cc',
+    secondary: '#3366ff',
+    emissive: '#66ccff',
+    opacity: 0.85,
+  },
+  router: {
+    primary: '#008899',
+    secondary: '#00ddff',
+    emissive: '#00ffff',
+    opacity: 0.85,
+  },
+  firewall: {
+    primary: '#334455',
+    secondary: '#667788',
+    emissive: '#99bbdd',
+    opacity: 0.85,
+  },
+  switch: {
+    primary: '#10b981',
+    secondary: '#34d399',
+    emissive: '#6ee7b7',
+    opacity: 0.85,
+  },
+  loadBalancer: {
+    primary: '#7c3aed',
+    secondary: '#8b5cf6',
+    emissive: '#a78bfa',
+    opacity: 0.9,
+  },
 }
 
 function Server({ position }) {
   return (
     <group position={position}>
-      <mesh>
-        <boxGeometry args={[1.2, 0.3, 0.6]} />
-        <meshBasicMaterial color='#0ea5e9' />
-      </mesh>
-
-      <mesh>
-        <boxGeometry args={[1.3, 0.4, 0.7]} />
-        <meshBasicMaterial color='#0ea5e9' opacity={0.7} transparent />
-      </mesh>
-
-      <mesh position={[0, -0.3, 0]}>
-        <boxGeometry args={[1, 0.1, 0.5]} />
-        <meshBasicMaterial color={themeColors.primary} />
-      </mesh>
-    </group>
-  )
-}
-
-function Router({ position }) {
-  return (
-    <group position={position}>
-      <mesh>
-        <cylinderGeometry args={[1, 1, 0.3, 20]} />
-        <meshBasicMaterial color={themeColors.primary} opacity={1} transparent />
-      </mesh>
-      <mesh>
-        <cylinderGeometry args={[1.3, 1.3, 0.5, 20]} />
-        <meshBasicMaterial color='#0ea5e9' opacity={0.7} transparent />
-      </mesh>
-    </group>
-  )
-}
-
-// 修改 Firewall 组件为 forwardRef 形式
-const Firewall = forwardRef(({ position, emissiveIntensity = 2.5, messageType, index }, ref) => {
-  const [isBlinking, setIsBlinking] = useState(false)
-
-  // 暴露给父组件的方法
-  useImperativeHandle(ref, () => ({
-    startBlink: () => {
-      setIsBlinking(true)
-      // 自动关闭闪烁
-      setTimeout(() => setIsBlinking(false), 1000)
-    },
-  }))
-
-  const warningColor = '#ff0000'
-  const warningEmissive = '#ff2200'
-  const warningIntensity = 8
-
-  return (
-    <group position={position}>
       {/* 主体 */}
-      <mesh rotation={[0, Math.PI / 4, 0]} castShadow receiveShadow>
-        <boxGeometry args={[1.5, 0.8, 1.5]} />
-        <meshStandardMaterial
-          color={isBlinking ? warningColor : themeColors.primary}
-          opacity={1}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[1.2, 2, 0.8]} />
+        <meshPhongMaterial
+          color={themeColors.server.primary}
+          emissive={themeColors.server.emissive}
+          emissiveIntensity={0.5}
+          opacity={themeColors.server.opacity}
           transparent
-          metalness={0.9}
-          roughness={0.1}
-          emissive={isBlinking ? warningEmissive : themeColors.emissive}
-          emissiveIntensity={isBlinking ? warningIntensity : emissiveIntensity}
         />
       </mesh>
 
       {/* 外壳 */}
-      <mesh rotation={[0, Math.PI / 4, 0]} castShadow receiveShadow>
-        <boxGeometry args={[2, 1, 2]} />
-        <meshStandardMaterial
-          color={isBlinking ? warningColor : '#0ea5e9'}
-          opacity={isBlinking ? 0.8 : 0.7}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[1.3, 2.2, 1]} />
+        <meshPhongMaterial
+          color={themeColors.server.secondary}
+          emissive={themeColors.server.emissive}
+          emissiveIntensity={0.3}
+          opacity={themeColors.server.opacity * 0.8}
           transparent
-          metalness={0.9}
-          roughness={0.1}
-          emissive={isBlinking ? warningEmissive : themeColors.emissive}
-          emissiveIntensity={isBlinking ? warningIntensity * 0.8 : emissiveIntensity}
         />
       </mesh>
 
-      {/* 中央警示灯 */}
-      <mesh rotation={[0, Math.PI / 4, 0]} position={[0, 0.5, 0]}>
-        <boxGeometry args={[0.3, 0.1, 0.3]} />
-        <meshStandardMaterial
-          color={warningColor}
-          emissive={warningEmissive}
-          emissiveIntensity={isBlinking ? warningIntensity * 1.5 : 3}
-          metalness={1}
-          roughness={0}
-        />
+      {/* 底座 */}
+      <mesh position={[0, -1.2, 0]}>
+        <boxGeometry args={[1.2, 0.2, 0.8]} />
+        <meshPhongMaterial color={themeColors.server.primary} emissive={themeColors.server.emissive} emissiveIntensity={0.8} />
       </mesh>
-
-      {/* 四角装饰灯 */}
-      {[
-        [-0.5, 0.5],
-        [0.5, 0.5],
-        [-0.5, -0.5],
-        [0.5, -0.5],
-      ].map(([x, z], i) => (
-        <mesh key={i} rotation={[0, Math.PI / 4, 0]} position={[x, 0.45, z]}>
-          <boxGeometry args={[0.1, 0.05, 0.1]} />
-          <meshStandardMaterial color='#00ff00' emissive='#00ff00' emissiveIntensity={2} metalness={1} roughness={0} />
-        </mesh>
-      ))}
     </group>
   )
-})
+}
 
 function Switch({ position }) {
   return (
     <group position={position}>
       {/* 主体 */}
-      <mesh>
-        <boxGeometry args={[5.1, 0.3, 1.2]} />
-        <meshBasicMaterial color={themeColors.primary} />
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[3.2, 2, 0.8]} />
+        <meshPhongMaterial
+          color={themeColors.switch.primary}
+          emissive={themeColors.switch.emissive}
+          emissiveIntensity={0.5}
+          opacity={themeColors.switch.opacity}
+          transparent
+        />
       </mesh>
 
-      {/* 端口指示灯 */}
-      {Array.from({ length: 8 }, (_, i) => (
-        <group key={i} position={[-2 + i * 0.5, 0.15, 0]}>
-          <mesh position={[0, 0, 0.4]}>
-            <boxGeometry args={[0.2, 0.1, 0.1]} />
-            <meshBasicMaterial color={i % 2 ? '#ffff00' : '#00ff00'} />
-          </mesh>
-          <mesh position={[0, 0, -0.4]}>
-            <boxGeometry args={[0.2, 0.1, 0.1]} />
-            <meshBasicMaterial color={i % 3 ? '#00ff00' : '#ffff00'} />
-          </mesh>
-        </group>
-      ))}
-
-      {/* 状态指示灯 */}
-      <mesh position={[2.4, 0.2, 0]}>
-        <cylinderGeometry args={[0.1, 0.1, 0.2, 8]} />
-        <meshBasicMaterial color='#00ff00' />
+      {/* 外壳 */}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[3.5, 2.2, 1]} />
+        <meshPhongMaterial
+          color={themeColors.switch.secondary}
+          emissive={themeColors.switch.emissive}
+          emissiveIntensity={0.3}
+          opacity={themeColors.switch.opacity * 0.8}
+          transparent
+        />
       </mesh>
 
-      {/* 透明外壳 */}
-      <mesh>
-        <boxGeometry args={[5.5, 0.5, 1.6]} />
-        <meshBasicMaterial color='#0ea5e9' opacity={0.7} transparent />
+      <mesh position={[0, -1.2, 0]}>
+        <boxGeometry args={[3.2, 0.2, 0.8]} />
+        <meshPhongMaterial color={themeColors.switch.primary} emissive={themeColors.switch.emissive} emissiveIntensity={0.8} />
       </mesh>
-
-      {/* 散热孔 */}
-      {Array.from({ length: 6 }, (_, i) => (
-        <mesh key={i} position={[-2.2 + i * 0.8, 0, 0]}>
-          <cylinderGeometry args={[0.05, 0.05, 0.31, 6]} rotation={[Math.PI / 2, 0, 0]} />
-          <meshBasicMaterial color='#000000' />
-        </mesh>
-      ))}
     </group>
   )
 }
@@ -190,63 +113,157 @@ function LoadBalancer({ position }) {
   return (
     <group position={position}>
       {/* 主体 */}
-      <mesh>
-        <boxGeometry args={[7, 0.6, 1.8]} />
-        <meshBasicMaterial color={themeColors.primary} />
+      <mesh position={[0, 0.6, 0]}>
+        <boxGeometry args={[10.2, 3, 0.8]} />
+        <meshPhongMaterial
+          color={themeColors.loadBalancer.primary}
+          emissive={themeColors.loadBalancer.emissive}
+          emissiveIntensity={0.5}
+          opacity={themeColors.loadBalancer.opacity}
+          transparent
+        />
       </mesh>
 
-      {/* 透明外壳 */}
-      <mesh>
-        <boxGeometry args={[7.5, 0.8, 2.3]} />
-        <meshBasicMaterial color='#0ea5e9' opacity={0.7} transparent />
+      {/* 外壳 */}
+      <mesh position={[0, 0.6, 0]}>
+        <boxGeometry args={[10.5, 3.2, 1]} />
+        <meshPhongMaterial
+          color={themeColors.loadBalancer.secondary}
+          emissive={themeColors.loadBalancer.emissive}
+          emissiveIntensity={0.3}
+          opacity={themeColors.loadBalancer.opacity * 0.8}
+          transparent
+        />
       </mesh>
 
-      {/* 中央处理单元指示灯 */}
-      <mesh position={[0, 0.31, 0]}>
-        <boxGeometry args={[0.8, 0.1, 0.8]} />
-        <meshBasicMaterial color='#00ffff' />
+      {/* 底座 */}
+      <mesh position={[0, -1.2, 0]}>
+        <boxGeometry args={[10.2, 0.2, 0.8]} />
+        <meshPhongMaterial color={themeColors.loadBalancer.primary} emissive={themeColors.loadBalancer.emissive} emissiveIntensity={0.8} />
       </mesh>
-
-      {/* 状态指示灯（左侧） */}
-      {[-2.5, -1.5, -0.5, 0.5, 1.5, 2.5].map((x, i) => (
-        <mesh key={`left-${i}`} position={[x, 0.31, -0.8]}>
-          <boxGeometry args={[0.15, 0.05, 0.15]} />
-          <meshBasicMaterial color='#ffff00' />
-        </mesh>
-      ))}
-
-      {/* 状态指示灯（右侧） */}
-      {[-2.5, -1.5, -0.5, 0.5, 1.5, 2.5].map((x, i) => (
-        <mesh key={`right-${i}`} position={[x, 0.31, 0.8]}>
-          <boxGeometry args={[0.15, 0.05, 0.15]} />
-          <meshBasicMaterial color='#00ff00' />
-        </mesh>
-      ))}
-
-      {/* 装饰条 */}
-      <mesh position={[0, 0, 1]}>
-        <boxGeometry args={[6.8, 0.1, 0.1]} />
-        <meshBasicMaterial color='#4488ff' />
-      </mesh>
-      <mesh position={[0, 0, -1]}>
-        <boxGeometry args={[6.8, 0.1, 0.1]} />
-        <meshBasicMaterial color='#4488ff' />
-      </mesh>
-
-      {/* 散热纹理 */}
-      {[-3, -2, -1, 0, 1, 2, 3].map((x, i) => (
-        <mesh key={`vent-${i}`} position={[x, 0, 0]}>
-          <boxGeometry args={[0.5, 0.61, 1.81]} />
-          <meshBasicMaterial color={themeColors.primary} />
-        </mesh>
-      ))}
     </group>
   )
 }
 
-function DataFlow({ start, end, messageType = 'info', startIdx, endIdx }) {
+const Firewall = forwardRef(({ position, messageType }, ref) => {
+  const getColors = () => {
+    switch (messageType) {
+      case 'error':
+        return {
+          primary: '#dc2626',
+          secondary: '#ef4444',
+          emissive: '#f87171',
+        }
+      case 'warning':
+        return {
+          primary: '#fbbf24',
+          secondary: '#fcd34d',
+          emissive: '#fde68a',
+        }
+      case 'success':
+        return {
+          primary: '#006644',
+          secondary: '#00cc88',
+          emissive: '#00ffaa',
+        }
+      case 'info':
+        return {
+          primary: '#334455',
+          secondary: '#667788',
+          emissive: '#99bbdd',
+        }
+      default:
+        return themeColors.firewall
+    }
+  }
+
+  const colors = getColors()
+  const normalColor = colors.primary
+
+  return (
+    <group position={position}>
+      {/* 主体 */}
+      <mesh castShadow receiveShadow>
+        <boxGeometry args={[3.4, 2, 1]} />
+        <meshPhongMaterial
+          color={normalColor}
+          emissive={colors.emissive}
+          emissiveIntensity={0.6}
+          opacity={themeColors.firewall.opacity}
+          transparent
+        />
+      </mesh>
+
+      {/* 外壳 */}
+      <mesh castShadow receiveShadow>
+        <boxGeometry args={[3.6, 2.2, 1.2]} />
+        <meshPhongMaterial
+          color={colors.secondary}
+          emissive={colors.emissive}
+          emissiveIntensity={0.4}
+          opacity={themeColors.firewall.opacity * 0.8}
+          transparent
+        />
+      </mesh>
+
+      {/* 底座 */}
+      <mesh position={[0, -1.2, 0]}>
+        <boxGeometry args={[3.4, 0.2, 1]} />
+        <meshPhongMaterial color={themeColors.firewall.primary} emissive={themeColors.firewall.emissive} emissiveIntensity={0.8} />
+      </mesh>
+    </group>
+  )
+})
+
+function Router({ position }) {
+  return (
+    <group position={position}>
+      {/* 主体 */}
+      <mesh>
+        <boxGeometry args={[1.3, 1, 1.3]} />
+        <meshPhongMaterial
+          color={themeColors.router.primary}
+          emissive={themeColors.router.emissive}
+          emissiveIntensity={0.6}
+          opacity={themeColors.router.opacity}
+          transparent
+        />
+      </mesh>
+
+      {/* 外壳 */}
+      <mesh>
+        <boxGeometry args={[1.5, 1.3, 1.5]} />
+        <meshPhongMaterial
+          color={themeColors.router.secondary}
+          emissive={themeColors.router.emissive}
+          emissiveIntensity={0.4}
+          opacity={themeColors.router.opacity * 0.8}
+          transparent
+        />
+      </mesh>
+
+      {/* 底座 */}
+      <mesh position={[0, -1.2, 0]}>
+        <boxGeometry args={[1.3, 0.2, 1.3]} />
+        <meshPhongMaterial color={themeColors.router.primary} emissive={themeColors.router.emissive} emissiveIntensity={0.8} />
+      </mesh>
+    </group>
+  )
+}
+
+function External({ position }) {
+  return (
+    <group position={position}>
+      <mesh>
+        <boxGeometry args={[3, 3, 1]} />
+        <meshBasicMaterial color='#FFFFFF' opacity={0.2} transparent />
+      </mesh>
+    </group>
+  )
+}
+
+function DataFlow({ start, end }) {
   const particleRefs = useRef([0, 1, 2].map(() => useRef(null)))
-  const lastType = useRef(messageType)
 
   const curve = useMemo(() => {
     const startVec = new Vector3(...start)
@@ -269,20 +286,6 @@ function DataFlow({ start, end, messageType = 'info', startIdx, endIdx }) {
     return new CatmullRomCurve3(points, false, 'centripetal', 0)
   }, [start, end])
 
-  // 统一使用亮青色
-  const lineColor = '#4AFFFF'
-  const lineOpacity = 0.6
-
-  // 当messageType变化时更新颜色
-  useEffect(() => {
-    lastType.current = messageType
-    particleRefs.current.forEach(ref => {
-      if (ref.current) {
-        ref.current.material.color.setStyle(lineColor)
-      }
-    })
-  }, [messageType, lineColor])
-
   useFrame(({ clock }) => {
     particleRefs.current.forEach((ref, index) => {
       if (ref.current) {
@@ -299,21 +302,15 @@ function DataFlow({ start, end, messageType = 'info', startIdx, endIdx }) {
       {/* 主线条 */}
       <mesh>
         <tubeGeometry args={[curve, 50, 0.02, 8, false]} />
-        <meshBasicMaterial color={lineColor} opacity={lineOpacity} transparent />
-      </mesh>
-
-      {/* 发光效果线条 */}
-      <mesh>
-        <tubeGeometry args={[curve, 50, 0.05, 8, false]} />
-        <meshBasicMaterial color={lineColor} transparent opacity={lineOpacity / 2} />
+        <meshBasicMaterial color='#FFFFFF' opacity='0.2' transparent />
       </mesh>
 
       {/* 粒子效果 */}
       {particleRefs.current.map((_, index) => {
         return (
           <mesh key={index} ref={particleRefs.current[index]}>
-            <sphereGeometry args={[0.08]} />
-            <meshBasicMaterial color={lineColor} />
+            <sphereGeometry args={[0.05]} />
+            <meshBasicMaterial color='#4AFFFF' />
           </mesh>
         )
       })}
@@ -323,79 +320,25 @@ function DataFlow({ start, end, messageType = 'info', startIdx, endIdx }) {
 
 // 创建渐变背景组件
 function GradientBackground() {
-  // 创建渐变着色器材质并添加时间变量以实现动态效果
   const uniforms = useMemo(
     () => ({
       u_time: { value: 0 },
-      colorTop: { value: new Vector3(0, 1, 1) }, // 青色 #00ffff
-      colorBottom: { value: new Vector3(0, 0.2, 1) }, // 更深的蓝色 #0033ff
+      colorTop: { value: new Vector3(0, 1, 1) },
+      colorBottom: { value: new Vector3(0, 0.2, 1) },
     }),
     []
   )
 
-  const gradientMaterial = useMemo(() => {
-    return new ShaderMaterial({
-      uniforms,
-      vertexShader: `
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform float u_time;
-        uniform vec3 colorTop;
-        uniform vec3 colorBottom;
-        varying vec2 vUv;
-        
-        void main() {
-          // 创建更平滑的基础渐变
-          float gradientFactor = pow(vUv.y, 1.2); // 使用幂函数使渐变更自然
-          vec3 baseGradient = mix(colorBottom, colorTop, gradientFactor);
-          
-          // 添加更细腻的波浪效果
-          float wave1 = sin(u_time * 0.3 + vUv.x * 5.0) * 0.03;
-          float wave2 = cos(u_time * 0.2 + vUv.y * 4.0) * 0.02;
-          float wave3 = sin(u_time * 0.1 + (vUv.x + vUv.y) * 6.0) * 0.015;
-          
-          // 组合波浪效果
-          float waveEffect = wave1 + wave2 + wave3;
-          
-          // 调整渐变位置，添加波动感
-          float adjustedY = vUv.y + waveEffect;
-          vec3 waveGradient = mix(colorBottom, colorTop, clamp(adjustedY, 0.0, 1.0));
-          
-          // 混合基础渐变和波浪渐变
-          vec3 mixedColor = mix(baseGradient, waveGradient, 0.7);
-          
-          // 添加光晕效果
-          float glow = 0.05 * (sin(u_time * 0.2) * 0.5 + 0.5);
-          vec3 glowColor = vec3(0.3, 0.7, 1.0);
-          mixedColor += glow * glowColor * (1.0 - vUv.y * 0.8);
-          
-          // 添加微小的噪点效果增加质感
-          float noise = fract(sin(dot(vUv, vec2(12.9898, 78.233) * u_time * 0.01)) * 43758.5453);
-          mixedColor += noise * 0.02;
-          
-          gl_FragColor = vec4(mixedColor, 1.0);
-        }
-      `,
-    })
-  }, [uniforms])
-
-  // 更新时间变量
   useFrame(({ clock }) => {
     uniforms.u_time.value = clock.getElapsedTime()
   })
 
   return (
     <mesh>
-      <sphereGeometry args={[150, 64, 64]} />
+      <sphereGeometry args={[64, 64, 64]} />
       <shaderMaterial
         attach='material'
         side={BackSide}
-        transparent={true}
         args={[
           {
             uniforms: {
@@ -415,28 +358,48 @@ function GradientBackground() {
         varying vec3 vPosition;
         varying vec2 vUv;
         
+        // 改进的柏林噪声函数
+        float rand(vec2 n) { 
+          return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+        }
+        
+        float noise(vec2 p){
+          vec2 ip = floor(p);
+          vec2 u = fract(p);
+          u = u*u*(3.0-2.0*u);
+          
+          float res = mix(
+            mix(rand(ip), rand(ip+vec2(1.0,0.0)), u.x),
+            mix(rand(ip+vec2(0.0,1.0)), rand(ip+vec2(1.0,1.0)), u.x), u.y);
+          return res*res;
+        }
+        
         void main() {
-          // 计算从底部到顶部的渐变，使用更宽的过渡区域
+          // 使用改进的渐变计算
           float yGradient = smoothstep(-1.0, 1.0, vPosition.y / 120.0);
           
-          // 更鲜明的青蓝色渐变
-          vec3 color1 = vec3(0.0, 0.1, 0.2); // 更亮的深蓝色
-          vec3 color2 = vec3(0.0, 0.5, 0.8); // 明显的亮蓝色
-          vec3 baseColor = mix(color1, color2, yGradient);
+          // 使用更柔和的颜色过渡
+          vec3 color1 = vec3(0.0, 0.1, 0.4);
+          vec3 color2 = vec3(0.0, 0.3, 0.4);
+          vec3 color3 = vec3(0.2, 0.0, 0.4);
           
-          // 添加一些微弱的星星点缀
-          vec2 pos = vUv * 30.0;
-          vec2 i = floor(pos);
+          // 三重颜色混合
+          vec3 baseColor = mix(
+            mix(color1, color2, smoothstep(0.0, 0.5, yGradient)),
+            color3,
+            smoothstep(0.5, 1.0, yGradient)
+          );
+          
+          // 改进的星星效果
+          vec2 pos = vUv * 40.0;
+          float n = noise(pos + u_time * 0.1);
+          
           float sparkle = 0.0;
-          
-          // 简单的随机函数
-          float random = fract(sin(dot(i, vec2(12.9898, 78.233))) * 43758.5453);
-          
-          // 只在一些随机位置添加星星，增加亮度
-          if(random > 0.985) {
-            vec2 f = fract(pos);
-            float d = length(f - 0.5);
-            sparkle = 0.025 / (d * d) * (0.7 + 0.5 * sin(u_time * 0.5 + random * 10.0));
+          if(n > 0.75) {
+            vec2 center = fract(pos) - 0.5;
+            float dist = length(center);
+            sparkle = 0.02 / (dist * dist) * smoothstep(0.95, 1.0, n);
+            sparkle *= 0.5 + 0.5 * sin(u_time + n * 10.0);
           }
           
           vec3 finalColor = baseColor + vec3(sparkle);
@@ -454,59 +417,53 @@ function Scene({ messageType }) {
   // 创建 ref 数组
   const firewallRefs = useRef([null, null, null])
 
-  useEffect(() => {
-    if (messageType === 'error') {
-      // 随机选择一个防火墙闪烁
-      const randomIndex = Math.floor(Math.random() * 3)
-      firewallRefs.current[randomIndex]?.startBlink?.()
-    }
-  }, [messageType])
-
   const nodes = [
     // 外部连接点（三个）
-    { type: 'external', position: [-6, 0, -120] },
-    { type: 'external', position: [0, 0, -120] },
-    { type: 'external', position: [6, 0, -120] },
+    { type: 'external', position: [-6, 0, -60] },
+    { type: 'external', position: [0, 0, -60] },
+    { type: 'external', position: [6, 0, -60] },
 
     // 第一层：路由器（三个）
     { type: 'router', position: [-6, 0, -12] },
     { type: 'router', position: [0, 0, -12] },
     { type: 'router', position: [6, 0, -12] },
-    { type: 'firewall', position: [-6, 0, -6] },
-    { type: 'firewall', position: [0, 0, -6] },
-    { type: 'firewall', position: [6, 0, -6] },
+
+    // 第二层：防火墙（三个）
+    { type: 'firewall', position: [-6, 0, -8] },
+    { type: 'firewall', position: [0, 0, -8] },
+    { type: 'firewall', position: [6, 0, -8] },
 
     // 第三层：负载均衡器
     { type: 'loadBalancer', position: [0, 0, 0] },
 
     // 第四层：交换机（左右）
-    { type: 'switch', position: [-4, 0, 4] },
-    { type: 'switch', position: [4, 0, 4] },
+    { type: 'switch', position: [-3, 0, 4] },
+    { type: 'switch', position: [3, 0, 4] },
 
     // 服务器层（四排）
     // 服务器第一排
-    { type: 'server', position: [-6, 0, 8] },
-    { type: 'server', position: [-2, 0, 8] },
-    { type: 'server', position: [2, 0, 8] },
-    { type: 'server', position: [6, 0, 8] },
+    { type: 'server', position: [-6, 0, 9] },
+    { type: 'server', position: [-2, 0, 9] },
+    { type: 'server', position: [2, 0, 9] },
+    { type: 'server', position: [6, 0, 9] },
 
     // 服务器第二排
-    { type: 'server', position: [-6, 0, 10] },
-    { type: 'server', position: [-2, 0, 10] },
-    { type: 'server', position: [2, 0, 10] },
-    { type: 'server', position: [6, 0, 10] },
+    { type: 'server', position: [-6, 0, 11] },
+    { type: 'server', position: [-2, 0, 11] },
+    { type: 'server', position: [2, 0, 11] },
+    { type: 'server', position: [6, 0, 11] },
 
     // 服务器第三排
-    { type: 'server', position: [-6, 0, 12] },
-    { type: 'server', position: [-2, 0, 12] },
-    { type: 'server', position: [2, 0, 12] },
-    { type: 'server', position: [6, 0, 12] },
+    { type: 'server', position: [-6, 0, 13] },
+    { type: 'server', position: [-2, 0, 13] },
+    { type: 'server', position: [2, 0, 13] },
+    { type: 'server', position: [6, 0, 13] },
 
     // 服务器第四排
-    { type: 'server', position: [-6, 0, 14] },
-    { type: 'server', position: [-2, 0, 14] },
-    { type: 'server', position: [2, 0, 14] },
-    { type: 'server', position: [6, 0, 14] },
+    { type: 'server', position: [-6, 0, 15] },
+    { type: 'server', position: [-2, 0, 15] },
+    { type: 'server', position: [2, 0, 15] },
+    { type: 'server', position: [6, 0, 15] },
   ]
 
   const connections = [
@@ -585,24 +542,48 @@ function Scene({ messageType }) {
   }, [camera, target])
 
   // 添加平滑的自动旋转逻辑
-  useFrame(({ clock }) => {
-    const radius = 40
-    const angle = clock.getElapsedTime() * 0.1 // 降低旋转速度，使旋转更平滑
-    const targetX = Math.sin(angle) * radius
-    const targetZ = Math.cos(angle) * radius
-    const targetY = 20
+  // useFrame(({ clock }) => {
+  //   const radius = 40
+  //   const angle = clock.getElapsedTime() * 0.1 // 降低旋转速度，使旋转更平滑
+  //   const targetX = Math.sin(angle) * radius
+  //   const targetZ = Math.cos(angle) * radius
+  //   const targetY = 20
 
-    // 平滑过渡到目标位置，避免突变
-    camera.position.x += (targetX - camera.position.x) * 0.05
-    camera.position.z += (targetZ - camera.position.z) * 0.05
-    camera.position.y += (targetY - camera.position.y) * 0.05
+  //   // 平滑过渡到目标位置，避免突变
+  //   camera.position.x += (targetX - camera.position.x) * 0.05
+  //   camera.position.z += (targetZ - camera.position.z) * 0.05
+  //   camera.position.y += (targetY - camera.position.y) * 0.05
 
-    camera.lookAt(target)
-  })
+  //   camera.lookAt(target)
+  // })
 
   return (
     <>
       <GradientBackground />
+
+      {/* 服务器左侧机房 */}
+      <lineSegments position={[-4, 0.6, 12]}>
+        <edgesGeometry args={[new BoxGeometry(7.2, 4.2, 8.2)]} />
+        <lineBasicMaterial color='#4AFFFF' opacity={0.8} transparent />
+      </lineSegments>
+
+      {/* 服务器右侧机房 */}
+      <lineSegments position={[4, 0.6, 12]}>
+        <edgesGeometry args={[new BoxGeometry(7.2, 4.2, 8.2)]} />
+        <lineBasicMaterial color='#4AFFFF' opacity={0.8} transparent />
+      </lineSegments>
+
+      {/* 交换机机房 */}
+      <lineSegments position={[0, 0.6, 2]}>
+        <edgesGeometry args={[new BoxGeometry(12, 4.2, 8)]} />
+        <lineBasicMaterial color='#4AFFFF' opacity={0.8} transparent />
+      </lineSegments>
+
+      {/* 防火墙机房 */}
+      <lineSegments position={[0, 0.6, -10]}>
+        <edgesGeometry args={[new BoxGeometry(15, 4.2, 10)]} />
+        <lineBasicMaterial color='#4AFFFF' opacity={0.8} transparent />
+      </lineSegments>
 
       <group>
         {nodes.map((node, i) => {
@@ -637,10 +618,10 @@ function Scene({ messageType }) {
       </group>
 
       {/* 修改 OrbitControls，禁用缩放和自动旋转 */}
-      <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} target={target} />
+      <OrbitControls enableZoom={false} enablePan={false} enableRotate={true} target={target} />
 
       {/* 更新相机设置 */}
-      <PerspectiveCamera makeDefault position={[30, 20, 30]} fov={18} up={[0, 1, 0]} />
+      <PerspectiveCamera makeDefault position={[30, 30, 20]} fov={24} up={[0, 1, 0]} />
     </>
   )
 }
