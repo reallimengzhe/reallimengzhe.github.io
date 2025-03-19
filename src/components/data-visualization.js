@@ -22,13 +22,15 @@ export default function DataVisualization() {
 
       if (key === 'globe') {
         const canvas = document.createElement('canvas')
-
         const devicePixelRatio = window.devicePixelRatio || 2
-
         canvas.style = 'width: 100%; height: 100%;'
 
-        canvas.width = ref.current.clientWidth * devicePixelRatio
-        canvas.height = ref.current.clientHeight * devicePixelRatio
+        const updateCanvasSize = () => {
+          canvas.width = ref.current.clientWidth * devicePixelRatio
+          canvas.height = ref.current.clientHeight * devicePixelRatio
+        }
+
+        updateCanvasSize()
         ref.current.appendChild(canvas)
 
         let phi = 0
@@ -39,7 +41,7 @@ export default function DataVisualization() {
         // 创建地球组件
         const createGlobeInstance = () =>
           createGlobe(canvas, {
-            devicePixelRatio: window.devicePixelRatio || devicePixelRatio,
+            devicePixelRatio: devicePixelRatio,
             width: canvas.width,
             height: canvas.height,
             phi: 0,
@@ -76,8 +78,17 @@ export default function DataVisualization() {
 
         let globe = createGlobeInstance()
 
+        // 监听容器尺寸变化
+        const resizeObserver = new ResizeObserver(() => {
+          updateCanvasSize()
+          globe.destroy()
+          globe = createGlobeInstance()
+        })
+
+        resizeObserver.observe(ref.current)
+
         // 监听主题变化
-        const observer = new MutationObserver(mutations => {
+        const themeObserver = new MutationObserver(mutations => {
           mutations.forEach(mutation => {
             if (mutation.attributeName === 'class') {
               isDarkMode = document.documentElement.classList.contains('dark')
@@ -87,11 +98,12 @@ export default function DataVisualization() {
           })
         })
 
-        observer.observe(document.documentElement, { attributes: true })
+        themeObserver.observe(document.documentElement, { attributes: true })
 
         // 清理函数
         return () => {
-          observer.disconnect()
+          resizeObserver.disconnect()
+          themeObserver.disconnect()
           globe.destroy()
           canvas.remove()
         }
@@ -244,7 +256,7 @@ export default function DataVisualization() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>我拥有丰富的数据可视化经验。迅速实现各种形式的数据展示。</h2>
+          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>我拥有丰富的数据可视化经验，不管是静态还是动态，都能轻松实现。</h2>
         </div>
         <div className='w-0 md:w-16 bg'></div>
       </div>

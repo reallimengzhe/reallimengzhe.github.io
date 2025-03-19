@@ -76,7 +76,7 @@ export default function LiveFeed() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>我拥有丰富的消息即时推送经验。轻松实现流畅的实时推送，使命必达。</h2>
+          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>但这还不够，想要追求效率，即时性很重要：流畅实现实时推送，使命必达。</h2>
         </div>
         <div className='w-0 md:w-16 bg'></div>
       </div>

@@ -24,7 +24,7 @@ export default function Page() {
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
           <h1 className='font-bold text-4xl md:text-6xl p-2 bg border-x'>
-            Li Mengzhe, A Front-End Development Engineer Who Dedicated to Building User-Friendly Interfaces. 🏂
+            A Front-End Development Engineer Who Dedicated to Building User-Friendly Interfaces. 🏂
           </h1>
         </div>
         <div className='w-0 md:w-16 bg'></div>
@@ -105,21 +105,22 @@ export default function Page() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <div className='grid gap-2 sm:grid-cols-1 md:grid-cols-2 p-2 border-x bg-slate-100 dark:bg-slate-900'>
+          <div className='grid gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2 border-x bg-slate-100 dark:bg-slate-900'>
             {projects
               .filter(item => item.show)
-              .slice(0, 4)
-              .map(project => {
+              .map((project, index) => {
                 return (
                   <a
                     key={project.name}
-                    className='bg flex flex-col items-start rounded-xl border p-6 md:p-8 transition-all hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'
+                    className={`bg flex flex-col items-start rounded-xl border p-6 md:p-8 transition-all hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5 ${
+                      index == 0 ? 'md:col-span-2' : ''
+                    }`}
                     href={'/projects/' + project.id}
                   >
-                    <img src={project.logo[0]} className='h-10 mb-16 block dark:hidden' />
-                    <img src={project.logo[1]} className='h-10 mb-16 hidden dark:block' />
+                    <img src={project.logo[0]} className='h-10 block dark:hidden' />
+                    <img src={project.logo[1]} className='h-10 hidden dark:block' />
 
-                    <h5 className='text-xl font-bold mb-2'>{project.name}</h5>
+                    <h5 className='text-xl font-bold mb-2 pt-8 md:pt-16'>{project.name}</h5>
 
                     <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-4'>
                       {project.keywords.map(keyword => {
@@ -160,7 +161,7 @@ export default function Page() {
         <div className='w-0 md:w-16 bg'></div>
       </div>
 
-      <div className='border-b flex' id='main-content'>
+      {/* <div className='border-b flex' id='main-content'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
           <div className='bg border-x p-2 flex gap-4'>
@@ -174,7 +175,7 @@ export default function Page() {
           </div>
         </div>
         <div className='w-0 md:w-16 bg'></div>
-      </div>
+      </div> */}
 
       <DataVisualization />
 
@@ -191,7 +192,7 @@ export default function Page() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>知识不应该被垄断，分享也是学习的一部分。</h2>
+          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>除了工作，我还喜欢写作和分享。共同学习，共同进步。</h2>
         </div>
         <div className='w-0 md:w-16 bg'></div>
       </div>
@@ -203,9 +204,10 @@ export default function Page() {
             {posts.slice(0, 5).map(post => {
               return (
                 <div className='flex gap-2' key={post.title}>
-                  <img src={'/avatar.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-xl border' />
+                  <img src={'/avatar.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-xl border dark:hidden' />
+                  <img src={'/avatar-dark.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-xl border hidden dark:block' />
 
-                  <div className='bg flex-1 rounded-xl border p-6 transition-all hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'>
+                  <div className='bg flex-1 rounded-xl border p-4 md:p-6 transition-all hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'>
                     <a href={post.link} target='_blank' className={`block text-xl md:text-2xl font-bold mb-4`}>
                       {post.title}
                     </a>

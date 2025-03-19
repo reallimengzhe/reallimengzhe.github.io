@@ -8,14 +8,14 @@ export default function ProjectCarousel() {
           <div className='bg-slate-100 dark:bg-slate-900 border-x p-2'>
             <div className='border bg rounded-xl overflow-hidden aspect-[5/2]'>
               <div
-                className='grid grid-cols-4 gap-12'
+                className='grid grid-cols-4 gap-4 md:gap-8 lg:gap-12'
                 style={{
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'top left',
                   transform: 'rotateX(45deg) rotateZ(-45deg) translateX(-38%) scale(1.1)',
                 }}
               >
-                <div className='border-r space-y-12' style={{ animation: 'scroll 60s linear infinite alternate' }}>
+                <div className='border-r space-y-4 md:space-y-8 lg:space-y-12' style={{ animation: 'scroll 60s linear infinite alternate' }}>
                   <img src='/project/thumbnails/1-1.png' className='border-y' />
                   <img src='/project/thumbnails/1-2.png' className='border-y' />
                   <img src='/project/thumbnails/1-3.png' className='border-y' />
@@ -27,7 +27,7 @@ export default function ProjectCarousel() {
                   <img src='/project/thumbnails/2-3.png' className='border-y' />
                   <img src='/project/thumbnails/2-4.png' className='border-y' />
                 </div>
-                <div className='border-x space-y-12' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
+                <div className='border-x space-y-4 md:space-y-8 lg:space-y-12' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
                   <img src='/project/thumbnails/2-5.png' className='border-y' />
                   <img src='/project/thumbnails/3-1.png' className='border-y' />
                   <img src='/project/thumbnails/3-2.png' className='border-y' />
@@ -39,7 +39,7 @@ export default function ProjectCarousel() {
                   <img src='/project/thumbnails/4-3.png' className='border-y' />
                   <img src='/project/thumbnails/5-1.png' className='border-y' />
                 </div>
-                <div className='border-x space-y-12' style={{ animation: 'scroll 60s linear infinite alternate' }}>
+                <div className='border-x space-y-4 md:space-y-8 lg:space-y-12' style={{ animation: 'scroll 60s linear infinite alternate' }}>
                   <img src='/project/thumbnails/5-2.png' className='border-y' />
                   <img src='/project/thumbnails/5-3.png' className='border-y' />
                   <img src='/project/thumbnails/6-1.png' className='border-y' />
@@ -51,7 +51,7 @@ export default function ProjectCarousel() {
                   <img src='/project/thumbnails/1-1.png' className='border-y' />
                   <img src='/project/thumbnails/1-2.png' className='border-y' />
                 </div>
-                <div className='border-x space-y-12' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
+                <div className='border-x space-y-4 md:space-y-8 lg:space-y-12' style={{ animation: 'scroll-reverse 60s linear infinite alternate' }}>
                   <img src='/project/thumbnails/1-3.png' className='border-y' />
                   <img src='/project/thumbnails/8-0.png' className='border-y' />
                   <img src='/project/thumbnails/8-1.png' className='border-y' />
