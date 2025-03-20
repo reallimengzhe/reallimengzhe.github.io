@@ -1,20 +1,8 @@
-'use client'
-
-import IconDownload from '@/components/icon-download'
 import projects from '@/data/project.json'
-import printJS from '@/utils/print.min.js'
-
-function handleExport() {
-  printJS({
-    printable: 'the_resume-main',
-    type: 'html',
-    scanStyles: true,
-    targetStyles: ['*'],
-    documentTitle: '前端开发工程师_李孟哲_15538077068',
-  })
-}
+import ResumePrintButton from '@/components/resume-print-button'
 
 export default function PageResume() {
+
   return (
     <main className='relative px-6'>
       <div className='mx-auto max-w-7xl py-20 border-b border-slate-100 dark:border-slate-900 mb-20'>
@@ -206,13 +194,7 @@ export default function PageResume() {
         </div>
       </div>
 
-      <button
-        className='bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-900 text-black dark:text-white transition-colors text-sm rounded-lg items-center px-4 py-2 mx-auto mb-20 hidden lg:flex'
-        onClick={handleExport}
-      >
-        <span className='mr-2'>打印或另存为</span>
-        <IconDownload />
-      </button>
+      <ResumePrintButton />
 
       <div className='block lg:hidden text-center mb-20'>
         <p className='text-5xl mb-10'>💻</p>
