@@ -192,7 +192,7 @@ export default function Page() {
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
-          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>除了工作，我还喜欢写作和分享。共同学习，共同进步。</h2>
+          <h2 className='font-bold text-2xl md:text-3xl border-x p-2 bg'>工作之外，我还喜欢写作和分享。</h2>
         </div>
         <div className='w-0 md:w-16 bg'></div>
       </div>

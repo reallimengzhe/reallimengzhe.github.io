@@ -11,7 +11,7 @@ export default function ResumePrintButton() {
         type: 'html',
         scanStyles: true,
         targetStyles: ['*'],
-        documentTitle: '前端开发工程师_李孟哲_15538077068',
+        documentTitle: '高级前端开发工程师_前端架构师_李孟哲_15538077068',
       })
   }
 

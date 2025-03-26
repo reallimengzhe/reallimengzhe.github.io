@@ -20,9 +20,9 @@ const messages = [
 
 const colors = {
   info: 'bg-slate-600',
-  warning: 'bg-amber-500',
+  warning: 'bg-yellow-500',
   error: 'bg-red-500',
-  success: 'bg-emerald-500',
+  success: 'bg-green-500',
 }
 
 const icons = {
