@@ -18,7 +18,7 @@ export default function MusicPlayer({ className }) {
     const audio = document.getElementById('music-player')
     const progressBar = document.getElementById('music-progress')
 
-    setRest(convertSeconds(audio.duration))
+    // setRest(convertSeconds(audio.duration))
 
     function updateProgress() {
       const progress = (audio.currentTime / audio.duration) * 100
