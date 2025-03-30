@@ -9,31 +9,31 @@ const themeColors = {
     primary: '#0033cc',
     secondary: '#3366ff',
     emissive: '#66ccff',
-    opacity: 0.85,
+    opacity: 0.5,
   },
   router: {
     primary: '#008899',
     secondary: '#00ddff',
     emissive: '#00ffff',
-    opacity: 0.85,
+    opacity: 0.5,
   },
   firewall: {
     primary: '#334455',
     secondary: '#667788',
     emissive: '#99bbdd',
-    opacity: 0.85,
+    opacity: 0.5,
   },
   switch: {
     primary: '#10b981',
     secondary: '#34d399',
     emissive: '#6ee7b7',
-    opacity: 0.85,
+    opacity: 0.5,
   },
   loadBalancer: {
     primary: '#7c3aed',
     secondary: '#8b5cf6',
     emissive: '#a78bfa',
-    opacity: 0.9,
+    opacity: 0.5,
   },
 }
 
@@ -318,101 +318,6 @@ function DataFlow({ start, end }) {
   )
 }
 
-// 创建渐变背景组件
-function GradientBackground() {
-  const uniforms = useMemo(
-    () => ({
-      u_time: { value: 0 },
-      colorTop: { value: new Vector3(0, 1, 1) },
-      colorBottom: { value: new Vector3(0, 0.2, 1) },
-    }),
-    []
-  )
-
-  useFrame(({ clock }) => {
-    uniforms.u_time.value = clock.getElapsedTime()
-  })
-
-  return (
-    <mesh>
-      <sphereGeometry args={[64, 64, 64]} />
-      <shaderMaterial
-        attach='material'
-        side={BackSide}
-        args={[
-          {
-            uniforms: {
-              u_time: { value: 0 },
-            },
-            vertexShader: `
-        varying vec3 vPosition;
-        varying vec2 vUv;
-        void main() {
-          vPosition = position;
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-            fragmentShader: `
-        uniform float u_time;
-        varying vec3 vPosition;
-        varying vec2 vUv;
-        
-        // 改进的柏林噪声函数
-        float rand(vec2 n) { 
-          return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
-        }
-        
-        float noise(vec2 p){
-          vec2 ip = floor(p);
-          vec2 u = fract(p);
-          u = u*u*(3.0-2.0*u);
-          
-          float res = mix(
-            mix(rand(ip), rand(ip+vec2(1.0,0.0)), u.x),
-            mix(rand(ip+vec2(0.0,1.0)), rand(ip+vec2(1.0,1.0)), u.x), u.y);
-          return res*res;
-        }
-        
-        void main() {
-          // 使用改进的渐变计算
-          float yGradient = smoothstep(-1.0, 1.0, vPosition.y / 120.0);
-          
-          // 使用更柔和的颜色过渡
-          vec3 color1 = vec3(0.0, 0.1, 0.4);
-          vec3 color2 = vec3(0.0, 0.3, 0.4);
-          vec3 color3 = vec3(0.2, 0.0, 0.4);
-          
-          // 三重颜色混合
-          vec3 baseColor = mix(
-            mix(color1, color2, smoothstep(0.0, 0.5, yGradient)),
-            color3,
-            smoothstep(0.5, 1.0, yGradient)
-          );
-          
-          // 改进的星星效果
-          vec2 pos = vUv * 40.0;
-          float n = noise(pos + u_time * 0.1);
-          
-          float sparkle = 0.0;
-          if(n > 0.75) {
-            vec2 center = fract(pos) - 0.5;
-            float dist = length(center);
-            sparkle = 0.02 / (dist * dist) * smoothstep(0.95, 1.0, n);
-            sparkle *= 0.5 + 0.5 * sin(u_time + n * 10.0);
-          }
-          
-          vec3 finalColor = baseColor + vec3(sparkle);
-          gl_FragColor = vec4(finalColor, 1.0);
-        }
-      `,
-          },
-        ]}
-      />
-    </mesh>
-  )
-}
-
 function Scene({ messageType }) {
   // 创建 ref 数组
   const firewallRefs = useRef([null, null, null])
@@ -559,8 +464,6 @@ function Scene({ messageType }) {
 
   return (
     <>
-      <GradientBackground />
-
       {/* 服务器左侧机房 */}
       <lineSegments position={[-4, 0.6, 12]}>
         <edgesGeometry args={[new BoxGeometry(7.2, 4.2, 8.2)]} />
@@ -626,17 +529,19 @@ function Scene({ messageType }) {
   )
 }
 
-export default function NetworkTopology({ messageType = 'info' }) {
+export default function NetworkTopology({ messageType = 'info', className }) {
   if (typeof window === 'undefined') return null
 
   return (
-    <div className='w-full h-full'>
+    <div className={`relative overflow-hidden ${className}`}>
+      <div className='absolute w-full h-full opacity-40 dark:opacity-5' style={{ backgroundImage: 'linear-gradient(120deg, color(display-p3 0.831 0.87 1), color(display-p3 0.975 0.866 0.904))' }}></div>
+
       <Canvas
         shadows='soft'
         dpr={window.devicePixelRatio}
         gl={{
           antialias: true,
-          alpha: false,
+          alpha: true,
           shadowMap: { type: PCFSoftShadowMap },
         }}
       >

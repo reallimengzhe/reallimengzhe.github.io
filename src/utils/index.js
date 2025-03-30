@@ -1,5 +1,5 @@
 export function setAnimation(elements) {
-  const animateClass = 'fade_in_bottom'
+  const animateClass = 'animate-fade-in-bottom'
 
   const intersectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {

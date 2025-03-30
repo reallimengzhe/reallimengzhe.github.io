@@ -18,7 +18,7 @@ export default function Projects() {
       <div className='mx-auto max-w-7xl py-20 border-b border-slate-100 dark:border-slate-900'>
         <h1 className='text-4xl md:text-5xl font-extrabold mb-6'>项目</h1>
         <p className='text-lg text-slate-400'>
-          我曾独立负责过多个大型项目，从立项到交付，完成了多个从 0 到 1 的实现。这是我职业生涯的宝贵经验，使我受益良多。
+          我曾独立负责过多个大型项目，从立项到交付，完成了多个从 0 到 1 的实现。
         </p>
       </div>
 

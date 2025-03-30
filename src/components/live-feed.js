@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, Suspense } from 'react'
 import { InformationCircleIcon, ExclamationTriangleIcon, XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import dynamic from 'next/dynamic'
 
-const NetworkTopology = dynamic(() => import('./network-topology'), {
+const NetworkTopology = dynamic(() => import('./examples/network-topology'), {
   ssr: false,
 })
 

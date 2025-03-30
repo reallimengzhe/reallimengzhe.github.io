@@ -6,7 +6,7 @@ export default function ProjectCarousel() {
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
           <div className='bg-slate-100 dark:bg-slate-900 border-x p-2'>
-            <div className='border bg rounded-xl overflow-hidden aspect-[5/2]'>
+            <div className='border bg rounded-xl overflow-hidden aspect-5/2'>
               <div
                 className='grid grid-cols-4 gap-4 md:gap-8 lg:gap-12'
                 style={{

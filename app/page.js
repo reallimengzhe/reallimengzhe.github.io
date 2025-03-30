@@ -2,7 +2,7 @@
 
 import IconArrowRight from '@/components/icon-arrow-right'
 import IconMore from '@/components/icon-more'
-import DataVisualization from '@/components/data-visualization'
+import AbilityExamples from '@/components/ability'
 import ProjectCarousel from '@/components/project-carousel'
 import LiveFeed from '@/components/live-feed'
 
@@ -177,9 +177,9 @@ export default function Page() {
         <div className='w-0 md:w-16 bg'></div>
       </div> */}
 
-      <DataVisualization />
+      <AbilityExamples />
 
-      <LiveFeed />
+      {/* <LiveFeed /> */}
 
       <div className='border-b flex'>
         <div className='w-0 md:w-16 bg'></div>

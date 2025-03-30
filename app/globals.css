@@ -1,11 +1,202 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-*: initial;
+  --color-border: hsl(var(--border));
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-klein-50: #b2c9e7;
+  --color-klein-100: #93b2da;
+  --color-klein-200: #748ccf;
+  --color-klein-300: #5566c4;
+  --color-klein-400: #3740b9;
+  --color-klein-500: #1f1aaf;
+  --color-klein-600: #002fa7;
+  --color-klein-700: #002885;
+  --color-klein-800: #002262;
+  --color-klein-900: #001c40;
+  --color-klein-950: #00161e;
+
+  --color-cyan-50: #b2ffff;
+  --color-cyan-100: #9dffff;
+  --color-cyan-200: #88ffff;
+  --color-cyan-300: #73ffff;
+  --color-cyan-400: #5dffff;
+  --color-cyan-500: #48ffff;
+  --color-cyan-600: #4affff;
+  --color-cyan-700: #3bcccc;
+  --color-cyan-800: #2c9999;
+  --color-cyan-900: #1e6666;
+  --color-cyan-950: #0f3333;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
+  --color-white: #fff;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  --color-black: #000;
+
+  --color-yellow-50: #fefce8;
+  --color-yellow-100: #fef9c3;
+  --color-yellow-200: #fef08a;
+  --color-yellow-300: #fde047;
+  --color-yellow-400: #facc15;
+  --color-yellow-500: #eab308;
+  --color-yellow-600: #ca8a04;
+  --color-yellow-700: #a16207;
+  --color-yellow-800: #854d0e;
+  --color-yellow-900: #713f12;
+  --color-yellow-950: #422006;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  --color-red-950: #450a0a;
+
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-200: #bbf7d0;
+  --color-green-300: #86efac;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+  --color-green-900: #14532d;
+  --color-green-950: #052e16;
+
+  --color-purple-50: oklch(0.977 0.014 308.299);
+  --color-purple-100: oklch(0.946 0.033 307.174);
+  --color-purple-200: oklch(0.902 0.063 306.703);
+  --color-purple-300: oklch(0.827 0.119 306.383);
+  --color-purple-400: oklch(0.714 0.203 305.504);
+  --color-purple-500: oklch(0.627 0.265 303.9);
+  --color-purple-600: oklch(0.558 0.288 302.321);
+  --color-purple-700: oklch(0.496 0.265 301.924);
+  --color-purple-800: oklch(0.438 0.218 303.724);
+  --color-purple-900: oklch(0.381 0.176 304.987);
+  --color-purple-950: oklch(0.291 0.149 302.717);
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+
+  --aspect-3\/2: 3 / 2;
+  --aspect-16\/10: 16 / 10;
+
+  --height-128: 32rem;
+
+  --animate-fade-in: fade-in-top 0.3s ease-out;
+  --animate-fade-in-bottom: fade-in-bottom 0.3s ease-out both;
+  --animate-slide-down: slide-down 0.3s ease-out;
+  --animate-scale-in-center: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  @keyframes fade-in-top {
+    0% {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-bottom {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in-center {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-slate-200, currentColor);
+  }
+
+  .dark {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+      border-color: var(--color-slate-800, currentColor);
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
 
 :root {
-  --klein-color-600: 0, 47, 167; /* main */
-  --cyan-color-600: 74, 255, 255; /* main */
-
   --bg-color: 255, 255, 255;
 
   /* --border-color: #f1f5f9; */
@@ -20,10 +211,6 @@
   --border-color: #1e293b;
 }
 
-* {
-  border-color: var(--border-color);
-}
-
 .nav_bar-logo::before {
   content: '';
   width: 6px;
@@ -34,7 +221,7 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  background-color: rgb(var(--klein-color-600));
+  background-color: var(--color-klein-600);
   transform: rotate(21deg);
   border-radius: 3px;
 }
@@ -57,36 +244,10 @@
 
 /* nav bar end */
 
-/* home start */
-.home-header {
-  background-image: linear-gradient(rgb(var(--bg-color)), transparent),
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'><path d='M0 .5H31.5V32'/></svg>");
-}
-
-.dark .home-header {
-  background-image: linear-gradient(rgb(var(--bg-color)), transparent),
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'><path d='M0 .5H31.5V32'/></svg>");
-}
-
 .home-module,
 .page_project-item,
 .page_post-item {
   opacity: 0;
-}
-
-.fade_in_bottom {
-  animation: fade_in_bottom 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-}
-
-@keyframes fade_in_bottom {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .transparent-bg {
