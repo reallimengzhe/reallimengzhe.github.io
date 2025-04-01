@@ -18,27 +18,29 @@ export default function NavBar() {
   }, [])
 
   function onChangeTheme(value) {
-    setPlugPosition(themeMap[value])
+    document.startViewTransition(() => {
+      setPlugPosition(themeMap[value])
 
-    switch (value) {
-      case 'light':
-        document.documentElement.classList.remove('dark')
-        localStorage.theme = 'light'
-        break
+      switch (value) {
+        case 'light':
+          document.documentElement.classList.remove('dark')
+          localStorage.theme = 'light'
+          break
 
-      case 'auto':
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)')
-        changeTheme(isDark)
-        isDark.onchange = changeTheme
+        case 'auto':
+          const isDark = window.matchMedia('(prefers-color-scheme: dark)')
+          changeTheme(isDark)
+          isDark.onchange = changeTheme
 
-        localStorage.theme = 'auto'
-        break
+          localStorage.theme = 'auto'
+          break
 
-      case 'dark':
-        document.documentElement.classList.add('dark')
-        localStorage.theme = 'dark'
-        break
-    }
+        case 'dark':
+          document.documentElement.classList.add('dark')
+          localStorage.theme = 'dark'
+          break
+      }
+    })
   }
 
   function changeTheme(e) {
