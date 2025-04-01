@@ -103,23 +103,23 @@ export default function ShoppingStats({ className }) {
         <p className='text-xs text-slate-300 pt-3'>Color</p>
 
         <div className='pt-2 grid grid-cols-4 gap-2'>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>Pastel</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>Bright</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>Purple</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>Pastel</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>Bright</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>Purple</button>
         </div>
 
         <p className='text-xs text-slate-300 pt-3'>Size</p>
 
         <div className='pt-2 grid grid-cols-4 gap-2 pb-2'>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>5.5</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>6</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>6.5</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>7</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>7.5</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>8</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>8.5</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>9</button>
-          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1 text-xs'>9.5</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>5.5</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>6</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>6.5</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>7</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>7.5</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>8</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>8.5</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>9</button>
+          <button className='rounded bg-gray-100 dark:bg-gray-800 px-2 py-1.5 text-xs'>9.5</button>
         </div>
       </div>
 
