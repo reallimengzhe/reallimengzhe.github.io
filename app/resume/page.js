@@ -54,7 +54,7 @@ export default function PageResume() {
                 <td className='py-1 text-gray-500'>开发经验</td>
                 <td className='py-1 pl-2'>5 年</td>
                 <td className='py-1 text-gray-500'>期望薪资</td>
-                <td className='py-1 pl-2'>税前 20-24K</td>
+                <td className='py-1 pl-2'>18-22K</td>
               </tr>
               <tr>
                 <td className='py-1 text-gray-500'>个人主页</td>
@@ -85,7 +85,7 @@ export default function PageResume() {
                 理解 <b>Vue</b> 的响应式原理、组件通信机制和渲染流程，设计和实现过多个基于 Vue 的大型复杂应用。
               </li>
               <li>
-                熟悉 <b>React</b> 技术栈，理解虚拟 DOM 和 Fiber 架构，有实际项目开发经验，能够在多框架环境中灵活切换。
+                熟悉 <b>React</b> 技术栈，有实际项目开发经验，能够在多框架环境中灵活切换。
               </li>
               <li>
                 具备 <b>UI 设计</b>能力和<b>用户体验</b>意识，熟练使用 Figma、Photoshop 等工具，目标是实现用户体验极佳的用户界面。
