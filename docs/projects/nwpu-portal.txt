@@ -1,5 +1,5 @@
 1:HL["/_next/static/css/e0ce1b8e7a0b6a4f.css","style",{"crossOrigin":""}]
-0:["bfqN8qPeYqS3fcUzJ5aoi",[[["",{"children":["projects",{"children":[["id","nwpu-portal","d"],{"children":["__PAGE__?{\"id\":\"nwpu-portal\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e0ce1b8e7a0b6a4f.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["T6uz-O0qTrV2j1HiKxJLf",[[["",{"children":["projects",{"children":[["id","nwpu-portal","d"],{"children":["__PAGE__?{\"id\":\"nwpu-portal\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e0ce1b8e7a0b6a4f.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[5822,["185","static/chunks/app/layout-9a5ace0869779518.js"],""]
 5:I[3122,[],""]
 6:I[7308,[],""]

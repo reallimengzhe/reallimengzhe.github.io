@@ -57,7 +57,7 @@ export default function PageResume() {
                 <td className='py-1 pl-2'>18-22K</td>
               </tr>
               <tr>
-                <td className='py-1 text-gray-500'>个人主页</td>
+                <td className='py-1 text-gray-500'>个人网站</td>
                 <td className='py-1 pl-2' rowspan='1'>
                   https://reallimengzhe.github.io/
                 </td>
@@ -206,7 +206,7 @@ export default function PageResume() {
                 主修<b>视觉传达设计</b>专业，获得学士学位。
               </li>
               <li>
-                <b>版面编排设计</b>、<b>网页设计与制作</b>等课程均获得 90+ 成绩。获得计算机二级证书。
+                <b>网页设计与制作</b>、<b>版面编排设计</b>等课程均获得 90+ 成绩。获得计算机二级证书。
               </li>
             </ul>
           </section>
