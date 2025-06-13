@@ -94,7 +94,7 @@ export default function PageResume() {
                 熟练使用 <b>Git</b> 进行版本控制和团队协作。
               </li>
               <li>
-                具备<b>跨端</b>开发能力，能够开发原生微信小程序，开发 Electron 桌面端应用，开发 Uni-App App 和小程序。
+                具备<b>跨端</b>开发能力，能够开发原生微信小程序、 Electron 桌面端应用和基于 Uni-App 生成的 App 或小程序。
               </li>
               <li>
                 具备<b>全栈</b>开发能力，熟练使用 Node.js 开发服务端应用。

@@ -4,7 +4,6 @@ import IconArrowRight from '@/components/icon-arrow-right'
 import IconMore from '@/components/icon-more'
 import AbilityExamples from '@/components/ability'
 import ProjectCarousel from '@/components/project-carousel'
-import LiveFeed from '@/components/live-feed'
 
 import projects from '@/data/project.json'
 import posts from '@/data/post.json'
@@ -123,28 +122,26 @@ export default function Page() {
                     <h5 className='text-xl font-bold mb-2 pt-8 md:pt-16'>{project.name}</h5>
 
                     <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-4'>
-                      {project.keywords.map(keyword => {
-                        return <span key={keyword}>#{keyword}</span>
-                      })}
+                      {project.keywords.map(keyword => (
+                        <span key={keyword}>#{keyword}</span>
+                      ))}
                     </div>
 
                     <p className='text-sm md:text-base text-slate-400 mb-4'>{project.intro}</p>
 
                     <div className='flex items-center mt-auto'>
-                      {project.techStack.map((tech, index) => {
-                        return (
-                          <div
-                            key={tech}
-                            className='flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-950'
-                            style={{
-                              marginLeft: index == 0 ? '-4px' : '-8px',
-                              zIndex: 10 - index,
-                            }}
-                          >
-                            <img src={'/icon/' + tech + '.svg'} className='h-7/12 w-7/12' />
-                          </div>
-                        )
-                      })}
+                      {project.techStack.map((tech, index) => (
+                        <div
+                          key={tech}
+                          className='flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-950'
+                          style={{
+                            marginLeft: index == 0 ? '-4px' : '-8px',
+                            zIndex: 10 - index,
+                          }}
+                        >
+                          <img src={'/icon/' + tech + '.svg'} className='h-7/12 w-7/12' />
+                        </div>
+                      ))}
 
                       <div
                         className='flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-950'
@@ -201,35 +198,31 @@ export default function Page() {
         <div className='w-0 md:w-16 bg'></div>
         <div className='w-4/5 flex-1 border-x px-6 md:px-12'>
           <div className='space-y-2 border-x p-2 bg-slate-100 dark:bg-slate-900'>
-            {posts.slice(0, 5).map(post => {
-              return (
-                <div className='flex gap-2' key={post.title}>
-                  <img src={'/avatar.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-xl border dark:hidden' />
-                  <img src={'/avatar-dark.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-xl border hidden dark:block' />
+            {posts.slice(0, 5).map(post => (
+              <div className='flex gap-2' key={post.title}>
+                <img src={'/avatar.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-xl border dark:hidden' />
+                <img src={'/avatar-dark.png'} className='h-12 w-12 md:h-16 md:w-16 rounded-xl border hidden dark:block' />
 
-                  <div className='bg flex-1 rounded-xl border p-4 md:p-6 transition-all hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'>
-                    <a href={post.link} target='_blank' className={`block text-xl md:text-2xl font-bold mb-4`}>
-                      {post.title}
-                    </a>
+                <div className='bg flex-1 rounded-xl border p-4 md:p-6 transition-all hover:shadow-xl hover:shadow-klein-600/5 dark:hover:shadow-cyan-600/5'>
+                  <a href={post.link} target='_blank' className={`block text-xl md:text-2xl font-bold mb-4`}>
+                    {post.title}
+                  </a>
 
-                    <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-6'>
-                      {post.keywords.map(keyword => {
-                        return <span key={keyword}>#{keyword}</span>
-                      })}
-                    </div>
-
-                    {/* <p className='text-slate-400'> {post.time} </p> */}
-
-                    <p className='text-sm md:text-base text-slate-400 mb-4'>{post.abstract}</p>
-
-                    <a href={post.link} target='_blank' className='text-sm md:text-base text-klein-600 dark:text-cyan-600 flex items-center'>
-                      <span> 阅读全文 </span>
-                      <IconArrowRight className='ml-1' />
-                    </a>
+                  <div className='flex gap-2 flex-wrap text-sm md:text-base text-klein-600 dark:text-cyan-600 mb-6'>
+                    {post.keywords.map(keyword => {
+                      return <span key={keyword}>#{keyword}</span>
+                    })}
                   </div>
+
+                  <p className='text-sm md:text-base text-slate-400 mb-4'>{post.abstract}</p>
+
+                  <a href={post.link} target='_blank' className='text-sm md:text-base text-klein-600 dark:text-cyan-600 flex items-center'>
+                    <span> 阅读全文 </span>
+                    <IconArrowRight className='ml-1' />
+                  </a>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
         </div>
         <div className='w-0 md:w-16 bg'></div>
